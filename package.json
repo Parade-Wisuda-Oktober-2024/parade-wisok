@@ -3,9 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
+  "engines": {
+    "npm": "10.8.1",
+    "node": "20.14.0"
+  },
   "scripts": {
     "prebuild": "prisma generate && prisma migrate deploy",
     "build": "next build",
+    "build:digitalocean": "npm install --production=false && npm run build && npm ci",
     "db:generate": "prisma migrate dev",
     "db:reset": "prisma migrate reset --force",
     "db:migrate": "prisma migrate deploy",
