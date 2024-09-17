@@ -43,7 +43,7 @@ export const authOptions: NextAuthOptions = {
     strategy: "jwt",
   },
   jwt: {
-    maxAge: env.SESSION_MAX_AGE,
+    maxAge: env.SESSION_MAXAGE,
   },
   callbacks: {
     session: async ({ session, token, trigger }) => {
@@ -89,7 +89,7 @@ export const authOptions: NextAuthOptions = {
             ? "localhost"
             : env.SESSION_COOKIE_DOMAIN,
         httpOnly: true,
-        maxAge: env.SESSION_MAX_AGE,
+        maxAge: env.SESSION_MAXAGE,
         path: "/",
         secure: true,
       },
@@ -107,7 +107,7 @@ export const authOptions: NextAuthOptions = {
      */
     CredentialsProvider({
       name: "Credentials",
-      // `credentials` is used to generate a form on the sign in page.
+      // `credentials` is used to generate a form on the sign-in page.
       // You can specify which fields should be submitted, by adding keys to the `credentials` object.
       // e.g. domain, username, password, 2FA token, etc.
       // You can pass any HTML attribute to the <input> tag through the object.
