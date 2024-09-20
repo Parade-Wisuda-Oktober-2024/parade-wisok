@@ -54,7 +54,7 @@ export const fraunces = localFont({
       style: 'normal'
     },
     {
-      path: './fonts/fraunces_semibold/Fraunces_Soft-Semibold.ttf',
+      path: './fonts/fraunces_semibold/Fraunces_Soft-SemiBold.ttf',
       weight: '600',
       style: 'normal'
     },
