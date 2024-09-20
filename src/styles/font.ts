@@ -59,7 +59,7 @@ export const fraunces = localFont({
       style: 'normal'
     },
     {
-      path: './fonts/fraunces_semibold/Fraunces-SemiboldItalic.ttf',
+      path: './fonts/fraunces_semibold/Fraunces-SemiBoldItalic.ttf',
       weight: '600',
       style: 'italic'
     }
