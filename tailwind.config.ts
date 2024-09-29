@@ -15,6 +15,7 @@ export default {
         "sub-sub-header": ["var(--font-fraunces)"],
         paragraph: ["var(--font-fraunces)"],
       },
+
       borderRadius: {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',
@@ -79,7 +80,7 @@ export default {
       addUtilities({})
       addComponents({
         ".title": {
-          fontSize: theme('fontSize.3xl'),
+          fontSize: theme('fontSize.4xl'),
           fontWeight: theme('fontWeight.bold'),
           color: 'transparent',
           fontFamily: theme('fontFamily.title'),
@@ -90,10 +91,10 @@ export default {
           "-webkit-filter": 'drop-shadow(1px 4px 0 var(--tw-shadow-color)) drop-shadow(0 0 10px var(--tw-shadow-color))',
           "filter": 'drop-shadow(1px 4px 0 var(--tw-shadow-color)) drop-shadow(0 0 10px var(--tw-shadow-color))',
           '@screen sm': {
-            fontSize: theme('fontSize.4xl')
+            fontSize: theme('fontSize.5xl')
           },
           '@screen md': {
-            fontSize: theme('fontSize.5xl')
+            fontSize: theme('fontSize.7xl')
           }
         }
       })

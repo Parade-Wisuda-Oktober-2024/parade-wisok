@@ -49,7 +49,7 @@
     }
 
     h1 {
-        @apply text-2xl font-bold capitalize sm:text-3xl md:text-4xl font-header;
+        @apply text-4xl font-bold capitalize sm:text-5xl md:text-7xl font-header;
     }
 
     h2 {
