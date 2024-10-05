@@ -1,5 +1,5 @@
 import Title from "~/components/title";
-import FAQ from "~/components/FAQ/FAQPage";
+import FAQ from "~/components/FAQ/FAQpage";
 import Image from "next/image";
 
 export default function HomePage() {
