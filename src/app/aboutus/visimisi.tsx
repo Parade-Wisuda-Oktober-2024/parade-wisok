@@ -30,7 +30,30 @@ export default function Visi (){
                 </div>
                 
             </div>  
+           {/* VISI MISI */}
 
+           <div className="absolute h-1/2 -top-1 scale-75 md:h-full mt-72  w-full md:scale-100 md:top-1/2 md:mt-48  flex flex-col md:flex-row gap-x-10 justify-center mx-auto ">
+                <div className=" h-64 md:h-full flex  flex-col items-center w-60 md:w-1/3 mx-auto md:mx-0 ">
+                    <h2 className="relative md:text-5xl text-3xl bg-gradient-text-aboutus pb-4">VISI</h2>
+                    <div className="rounded-3xl overflow-hidden bg-gradient-vm">
+                        <Image className="relative top-0 w-full " alt="cloud-vm-1" src={'/test1/cloud-vm-1.svg'} width={181} height={516} style ={{objectFit : 'cover'}}/>
+                        <h3 style={{ color: '#D9D9D9' }} className="relative text-center text-xs z-0 py-2 my-0 md:my-0 -top-10 md-top-0 md:text-2xl">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor . Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor </h3>
+                        <Image className="relative bottom-24  md:top-0 w-full"  alt="cloud-vm-2" src={'/test1/cloud-vm-2.svg'}width={181} height={516} style ={{objectFit : 'cover'}} />
+                    </div>
+
+                </div>
+                <div className=" h-64 md:h-full flex  flex-col items-center w-60 md:w-1/3 mx-auto md:mx-0 ">
+                    <h2 className="md:text-5xl text-3xl  pt-2 bg-gradient-text-aboutus pb-4">MISI</h2>
+                    <div className="rounded-3xl overflow-hidden bg-gradient-vm">
+                        <Image className="relative top-0 w-full " alt="cloud-vm-1" src={'/test1/cloud-vm-1.svg'} width={181} height={516} style ={{objectFit : 'cover'}}/>
+                        <h3 style={{ color: '#D9D9D9' }} className="relative text-center text-xs z-0 py-2 my-0 md:my-0 -top-10 md-top-0 md:text-2xl">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor . Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor </h3>
+                        <Image className="relative bottom-24  md:top-0 w-full"  alt="cloud-vm-2" src={'/test1/cloud-vm-2.svg'}width={181} height={516} style ={{objectFit : 'cover'}} />
+                    </div>
+
+                </div>
+
+
+            </div>
         </div>
     )
 }   
