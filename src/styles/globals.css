@@ -64,3 +64,40 @@
         @apply text-xs sm:text-xs md:text-sm font-paragraph;
     }
 }
+
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0%);
+        }
+    100% {
+        transform: translateX(-33.333333333%);
+        }
+    }
+    
+    /* Wrapper for infinite scroll */
+    .sponsor-slider {
+        white-space: nowrap;
+        overflow: hidden;
+        width: 100%;
+        position: relative;
+    }
+    
+    .sponsor-cards {
+        display: inline-flex;
+        gap: 12px;
+        animation: scroll 5s linear infinite;
+    }
+    
+    .sponsor-card {
+        display: inline-block;
+        flex-shrink: 0;
+        padding: 10px;
+        width: 300px;
+        background: var(--card);
+        transition: transform 0.3s ease-in-out;
+    }
+    
+    .sponsor-card:hover {
+        transform: scale(1.03);
+    }
