@@ -38,7 +38,7 @@ export default function Visi (){
                     <div className="rounded-3xl overflow-hidden bg-gradient-vm">
                         <Image className="relative top-0 w-full " alt="cloud-vm-1" src={'/vismis/cloud-vm-1.svg'} width={181} height={516} style ={{objectFit : 'cover'}}/>
                         <p style={{ color: '#D9D9D9' }} className="relative text-center text-xs z-0 py-2 my-0 md:my-0 -top-10 md-top-0 md:text-2xl">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor . Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor </p>
-                        <Image className="relative bottom-24  md:top-0 w-full"  alt="cloud-vm-2" src={'/vismis/cloud-vm-2.svg'}width={181} height={516} style ={{objectFit : 'cover'}} />
+                        <Image className="relative bottom-20  md:top-0 w-full"  alt="cloud-vm-2" src={'/vismis/cloud-vm-2.svg'}width={181} height={516} style ={{objectFit : 'cover'}} />
                     </div>
 
                 </div>
@@ -47,7 +47,7 @@ export default function Visi (){
                     <div className="rounded-3xl overflow-hidden bg-gradient-vm">
                         <Image className="relative top-0 w-full " alt="cloud-vm-1" src={'/vismis/cloud-vm-1.svg'} width={181} height={516} style ={{objectFit : 'cover'}}/>
                         <p style={{ color: '#D9D9D9' }} className="relative text-center text-xs z-0 py-2 my-0 md:my-0 -top-10 md-top-0 md:text-2xl">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor . Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor </p>
-                        <Image className="relative bottom-24  md:top-0 w-full"  alt="cloud-vm-2" src={'/vismis/cloud-vm-2.svg'}width={181} height={516} style ={{objectFit : 'cover'}} />
+                        <Image className="relative bottom-20  md:top-0 w-full"  alt="cloud-vm-2" src={'/vismis/cloud-vm-2.svg'}width={181} height={516} style ={{objectFit : 'cover'}} />
                     </div>
 
                 </div>

@@ -4,7 +4,7 @@ import OnoHeader from "~/components/onoheader";
 
 const Organogram = () => {
   return (
-    <div className="flex flex-col items-center justify-center bg-[url('/organogram/ono-bg.png')] bg-cover bg-center p-4">
+    <div className="flex flex-col items-center justify-center bg-[url('/organogram/ono-bg.png')] bg-cover bg-center w-full p-4">
       <div className="flex flex-row items-center justify-center space-x-4">
         {/* Burung kiri */}
         <Image src={'/organogram/ono-burung.png'} alt='burung' width={80} height={80} className='rotate-180 w-[50px] h-[50px] sm:w-[80px] sm:h-[80px] lg:w-[160px] lg:h-[160px]' />
