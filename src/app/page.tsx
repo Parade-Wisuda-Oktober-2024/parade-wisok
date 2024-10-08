@@ -74,7 +74,7 @@ export default function HomePage() {
             alt={"VIS-18"}
             width={1000}
             height={1000}
-            className="relative top-[39vh] md:top-[82vh] z-0 md:min-w-full"
+            className="absolute bottom-0 z-0 md:min-w-full"
           />
         </div>
       </div>
