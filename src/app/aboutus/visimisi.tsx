@@ -52,7 +52,31 @@ export default function Visi (){
 
                 </div>
 
+            </div>
 
+            {/* DECORATION */}
+            <div className="absolute flex justify-between w-full overflow-hidden z-10 top-28 md:top-34">
+                {/* Cloud Left */}
+                <div className=" md:w-1/4 scale-75 md:scale-100 md:-left-0 -left-6  relative top-10 md:top-0">
+                    <Image
+                    alt="cloud-left"
+                    src="/test1/cloud-left.svg"
+                    width={449}
+                    height={567}
+                    className="w-full h-auto"
+                    />
+                </div>
+
+                {/* Cloud Right */}
+                <div className="relative scale-75 md:scale-100  md:-right-0 -right-7 md:w-1/3 top-14 md:top-0">
+                    <Image
+                    alt="cloud-right"
+                    src="/test1/cloud-right.svg"
+                    width={560}
+                    height={567}
+                    className="w-full h-auto"
+                    />
+                </div>
             </div>
         </div>
     )
