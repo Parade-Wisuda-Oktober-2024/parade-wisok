@@ -6,8 +6,9 @@ const AboutUsPage = () => {
   return (
     <div>
       <Visi></Visi>
+
       
-      <Organogram /> 
+      <Organogram  /> 
     </div>
   )
 }
