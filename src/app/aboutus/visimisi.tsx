@@ -78,6 +78,39 @@ export default function Visi (){
                     />
                 </div>
             </div>
+           
+            {/* Right decoration */}    
+            <div className= "hidden md:block absolute -top-52 -right-24 md:top-36 scale-50 md:w-1/6 overflow-hidden z-20 h-auto" >
+                <Image  
+                 alt="blue-leaf-1"
+                 className="relative" 
+                 src={'/test1/blue-leaf-1.svg'} 
+                 width={250} 
+                 height={122} 
+                 style={{objectFit:"cover"}}/>
+                <Image  
+                alt="blue-leaf-2"
+                className="relative bottom-1" 
+                src={'/test1/blue-leaf-2.svg'} 
+                width={250} 
+                height={122} 
+                style={{objectFit:"cover"}}/> 
+            </div>
+            <div className= " block md:hidden absolute -right-20 mt-20 top-1/3  md:top-36 h-auto w-1/3  md:w-1/6 overflow-hidden z-20 ">
+                <Image  
+                 alt="blue-leaf-1"
+                 src={'/test1/blue-leaf-1.svg'} 
+                 width={60} 
+                 height={30} 
+                 style={{objectFit:"cover"}}/>
+                <Image  
+                alt="blue-leaf-2"
+                className="relative bottom-1" 
+                src={'/test1/blue-leaf-2.svg'} 
+                width={60} 
+                height={30} 
+                style={{objectFit:"cover"}}/> 
+            </div>
         </div>
     )
 }   
