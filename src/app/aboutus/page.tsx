@@ -4,7 +4,7 @@ import Organogram from './organogram'
 const AboutUsPage = () => {
   return (
     <div>
-      {/* sisa about us (bagian fawwas) */}
+      
       <Organogram /> 
     </div>
   )
