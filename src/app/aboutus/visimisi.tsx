@@ -14,6 +14,22 @@ export default function Visi (){
             <Image className="hidden md:block relative mt-16 " alt="about-us-bg-2" src ="/test1/about-us-bg-2-desktop.svg" fill style={{ objectFit: 'cover' }}/> 
             <Image className="block md:hidden " alt="about-us-bg-3" src ="/test1/about-us-bg-2-mobile.svg" width={560} height={334}/> 
             </div>
+           {/* About intro*/}
+           <div className="absolute flex flex-col top-10 md:top-0 md:top-20 justify-center h-1/4 md:h-1/3 md:left-1/4 md:right-1/4 md:min-h-1/3 z-10 md:w-1/2 ">
+                <div className="flex justify-center item-center flex-row h-1/5 md:h-1/4 w-full mb-12 top-12 relative md:top-0">
+                    <div className="relative bottom-2">
+                    <Image  alt ="butterfly-left" src={'/test1/butterfly-left.svg'} width={100} height={100}/>
+                    </div>
+                    <h2 className=" relative md:top-0 top-4 text-4xl md:text-7xl pb-4 bg-gradient-text-aboutus">ABOUT US</h2>
+                    <div className="relative bottom-2">
+                    <Image  alt="butterfly-right" src={'/test1/butterfly-right.svg'} width={100} height={100} />
+                    </div>
+                </div>
+                <div className="md:h-3/4 py-20 w-full md:px-8">
+                    <h3 style={{ color: '#D9D9D9' }} className="text-center relative md:top-20 px-12 md:px-6 md-p-0 text-sm md:text-3xl">Parade wisuda adalah kegiatan yang ditujukan untuk memaksimalkan hak dan  kesempatan dalam mengapresiasi wisudawan dan sebagai wahana integrasi  apresiasi massa kampus</h3>
+                </div>
+                
+            </div>  
 
         </div>
     )
