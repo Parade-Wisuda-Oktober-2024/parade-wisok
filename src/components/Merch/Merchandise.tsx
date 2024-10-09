@@ -71,25 +71,9 @@ const MerchandisePage = () => {
         </CarouselContent>
 
         {/* Previous/Next Button */}
-        <CarouselPrevious className="flex items-center justify-center">
-          <Image
-            src="/testbutton.png"
-            alt="Previous"
-            width={40}
-            height={40}
-            objectFit="contain"
-          />
-        </CarouselPrevious>
+        <CarouselPrevious className="flex items-center justify-center"></CarouselPrevious>
 
-        <CarouselNext className="flex items-center justify-center">
-          <Image
-            src="/testbutton.png"
-            alt="Next"
-            width={40}
-            height={40}
-            objectFit="contain"
-          />
-        </CarouselNext>
+        <CarouselNext className="flex items-center justify-center"></CarouselNext>
       </Carousel>
     </div>
   );

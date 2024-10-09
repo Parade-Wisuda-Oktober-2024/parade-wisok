@@ -4,10 +4,11 @@ import * as React from "react";
 import useEmblaCarousel, {
   type UseEmblaCarouselType,
 } from "embla-carousel-react";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, Play } from "lucide-react";
 
 import { cn } from "~/lib/utils";
 import { Button } from "~/components/ui/button";
+import Image from "next/image";
 
 type CarouselApi = UseEmblaCarouselType[1];
 type UseCarouselParameters = Parameters<typeof useEmblaCarousel>;
@@ -211,18 +212,30 @@ const CarouselPrevious = React.forwardRef<
       variant={variant}
       size={size}
       className={cn(
-        "absolute h-8 w-8 rounded-full",
+        "absolute h-16 w-16 transform rounded-full",
         orientation === "horizontal"
-          ? "-left-12 top-1/2 -translate-y-1/2"
+          ? "-left-36 top-1/2 -translate-y-1/2"
           : "-top-12 left-1/2 -translate-x-1/2 rotate-90",
         className,
       )}
+      style={{
+        backgroundImage: "url('/VIS-1.png')",
+        backgroundSize: "300%",
+        backgroundPosition: "center -30px",
+        backgroundRepeat: "no-repeat",
+      }}
       disabled={!canScrollPrev}
       onClick={scrollPrev}
       {...props}
     >
-      <ArrowLeft className="h-4 w-4" />
-      <span className="sr-only">Previous slide</span>
+      <Image
+        className="rotate-180 pl-1"
+        src="/Vector.png"
+        alt="vector-arrow"
+        width={28}
+        height={28}
+      />
+      <span className="sr-only">Next slide</span>
     </Button>
   );
 });
@@ -240,17 +253,29 @@ const CarouselNext = React.forwardRef<
       variant={variant}
       size={size}
       className={cn(
-        "absolute h-8 w-8 rounded-full",
+        "absolute flex h-16 w-16 items-center justify-center rounded-full",
         orientation === "horizontal"
-          ? "-right-12 top-1/2 -translate-y-1/2"
+          ? "-right-36 top-1/2 -translate-y-1/2"
           : "-bottom-12 left-1/2 -translate-x-1/2 rotate-90",
         className,
       )}
+      style={{
+        backgroundImage: "url('/VIS-1.png')",
+        backgroundSize: "300%",
+        backgroundPosition: "center -30px",
+        backgroundRepeat: "no-repeat",
+      }}
       disabled={!canScrollNext}
       onClick={scrollNext}
       {...props}
     >
-      <ArrowRight className="h-4 w-4" />
+      <Image
+        className="pl-1"
+        src="/Vector.png"
+        alt="vector-arrow"
+        width={28}
+        height={28}
+      />
       <span className="sr-only">Next slide</span>
     </Button>
   );
