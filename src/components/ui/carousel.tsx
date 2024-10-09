@@ -188,10 +188,7 @@ const CarouselItem = React.forwardRef<
         "min-w-0 shrink-0 grow-0 basis-full",
         orientation === "horizontal" ? "pl-4" : "pt-4",
         className,
-        "h-[416px] w-[416px] bg-cover bg-center",
-        "sm:h-[208px] sm:w-[208px]",
-        "md:h-[312px] md:w-[312px]",
-        "lg:h-[416px] lg:w-[416px]",
+        "bg-cover bg-center",
       )}
       {...props}
     />
@@ -212,7 +209,7 @@ const CarouselPrevious = React.forwardRef<
       variant={variant}
       size={size}
       className={cn(
-        "absolute h-16 w-16 transform rounded-full",
+        "absolute h-12 w-12 transform rounded-full md:h-16 md:w-16",
         orientation === "horizontal"
           ? "-left-36 top-1/2 -translate-y-1/2"
           : "-top-12 left-1/2 -translate-x-1/2 rotate-90",
@@ -229,7 +226,7 @@ const CarouselPrevious = React.forwardRef<
       {...props}
     >
       <Image
-        className="rotate-180 pl-1"
+        className="h-[22px] w-[22px] rotate-180 pl-1 md:h-[28px] md:w-[28px]"
         src="/Vector.png"
         alt="vector-arrow"
         width={28}
@@ -253,7 +250,7 @@ const CarouselNext = React.forwardRef<
       variant={variant}
       size={size}
       className={cn(
-        "absolute flex h-16 w-16 items-center justify-center rounded-full",
+        "absolute flex h-12 w-12 items-center justify-center rounded-full md:h-16 md:w-16",
         orientation === "horizontal"
           ? "-right-36 top-1/2 -translate-y-1/2"
           : "-bottom-12 left-1/2 -translate-x-1/2 rotate-90",
@@ -270,7 +267,7 @@ const CarouselNext = React.forwardRef<
       {...props}
     >
       <Image
-        className="pl-1"
+        className="h-[22px] w-[22px] pl-1 md:h-[28px] md:w-[28px]"
         src="/Vector.png"
         alt="vector-arrow"
         width={28}

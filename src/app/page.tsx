@@ -47,12 +47,7 @@ export default function HomePage() {
           <br></br>
           {/* komponen welcome disini */}
         </div>
-        <div
-          style={{
-            backgroundImage: "url('/merchandise/background-merch.png')",
-          }}
-          className="flex h-max flex-1 flex-col items-center justify-center bg-contain bg-center"
-        >
+        <div className="flex h-max flex-1 flex-col items-center justify-center">
           {/* merchandise */}
           {/* komponen merch disini */}
           <MerchandisePage />

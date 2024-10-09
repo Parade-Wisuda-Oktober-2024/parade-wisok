@@ -19,16 +19,16 @@ const fraunces = Fraunces({
 const MerchandisePage = () => {
   return (
     <div
-      className={`flex min-h-screen w-full flex-col items-center justify-center p-8 ${fraunces.className}`}
+      className={`flex min-h-screen w-full flex-col items-center justify-center bg-[url(/merchandise/background-merch.png)] bg-cover bg-no-repeat p-8 ${fraunces.className}`}
     >
       {/* Header */}
-      <div className="relative mb-10 flex flex-col items-center">
+      <div className="relative flex flex-col items-center md:mb-10">
         <Image
           src="/VIS-11.png"
           alt="Left Icon"
           width={236}
           height={111}
-          className="absolute left-[-4rem] top-[6rem] -translate-x-1/2 rotate-180 transform"
+          className="absolute left-[-2rem] top-[3rem] h-[76px] w-[118px] -translate-x-1/2 rotate-180 transform md:left-[-4rem] md:top-[6rem] md:h-[111px] md:w-[236px]"
           style={{
             filter: "drop-shadow(0 0 20px rgba(255, 140, 217, 1))",
           }}
@@ -38,7 +38,7 @@ const MerchandisePage = () => {
           alt="Right Icon"
           width={369}
           height={174}
-          className="absolute right-[-3.5rem] top-[1rem] translate-x-1/2 transform"
+          className="absolute right-[-2rem] top-[1rem] h-[107px] w-[202px] translate-x-1/2 transform md:right-[-3.5rem] md:top-[1rem] md:h-[174px] md:w-[369px]"
           style={{
             filter: "drop-shadow(0 0 20px rgba(255, 140, 217, 1))",
           }}
@@ -51,30 +51,32 @@ const MerchandisePage = () => {
       </div>
 
       {/* Carousel */}
-      <Carousel className="w-full max-w-[416px]">
-        <CarouselContent>
-          {[...Array(5)].map((_, index) => (
-            <CarouselItem key={index}>
-              <div className="aspect-square overflow-hidden rounded-[1.7rem] p-4">
-                <div
-                  className="flex h-full w-full items-end justify-center rounded-[1.7rem] border-[7px] border-black border-opacity-30 bg-[url(/merchandise/background-merch.png)] bg-cover bg-center bg-no-repeat pb-8 text-[2rem] font-semibold text-[#FEE59A] ring-4 ring-black ring-opacity-40"
-                  style={{
-                    textShadow: "4.71px 7.07px 20px #FFBF51",
-                    boxShadow: "0px 0px 15px 3px rgba(255, 230, 178, 1)",
-                  }}
-                >
-                  &lt;Merchandise&gt;
+      <div className="relative flex w-full items-center justify-center">
+        <Carousel className="w-full max-w-[250px] md:max-w-[416px]">
+          <CarouselContent>
+            {[...Array(5)].map((_, index) => (
+              <CarouselItem key={index}>
+                <div className="aspect-square overflow-hidden rounded-[1.7rem] p-4">
+                  <div
+                    className="flex h-full w-full items-end justify-center rounded-[1.7rem] border-[7px] border-black border-opacity-30 bg-[url(/merchandise/background-merch.png)] bg-cover bg-center bg-no-repeat pb-8 font-semibold text-[#FEE59A] ring-4 ring-black ring-opacity-40 md:text-[2rem]"
+                    style={{
+                      textShadow: "4.71px 7.07px 20px #FFBF51",
+                      boxShadow: "0px 0px 15px 3px rgba(255, 230, 178, 1)",
+                    }}
+                  >
+                    &lt;Merchandise&gt;
+                  </div>
                 </div>
-              </div>
-            </CarouselItem>
-          ))}
-        </CarouselContent>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
 
-        {/* Previous/Next Button */}
-        <CarouselPrevious className="flex items-center justify-center"></CarouselPrevious>
+          {/* Previous/Next Button */}
+          <CarouselPrevious className="absolute left-[-4rem] top-[8rem] flex items-center justify-center md:left-[-8rem] md:top-[12rem]"></CarouselPrevious>
 
-        <CarouselNext className="flex items-center justify-center"></CarouselNext>
-      </Carousel>
+          <CarouselNext className="absolute right-[-4rem] top-[8rem] flex items-center justify-center md:right-[-8rem] md:top-[12rem]"></CarouselNext>
+        </Carousel>
+      </div>
     </div>
   );
 };

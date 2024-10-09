@@ -9,7 +9,7 @@ export default function Title({
   return (
     <>
       <h1
-        className={cn("title mb-4 text-[70px]", className)}
+        className={cn("title mb-4 text-[40px] md:text-[70px]", className)}
         style={{
           background: "linear-gradient(to bottom, #FFFFFF, #F1A469)",
           WebkitBackgroundClip: "text",
