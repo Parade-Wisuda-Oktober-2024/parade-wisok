@@ -9,13 +9,13 @@ export default function Title({
   return (
     <>
       <h1
-        className={cn("title mb-4 text-[75px]", className)}
+        className={cn("title mb-4 text-[70px]", className)}
         style={{
           background: "linear-gradient(to bottom, #FFFFFF, #F1A469)",
           WebkitBackgroundClip: "text",
           WebkitTextFillColor: "transparent",
           textShadow:
-            "0 4px 80px rgba(255, 140, 217, 0.8), 0 2px 60px rgba(0, 0, 0, 0.25)",
+            "0 4px 40px rgba(255, 140, 217, 0.7), 0 2px 60px rgba(0, 0, 0, 0.25)",
         }}
       >
         {children}

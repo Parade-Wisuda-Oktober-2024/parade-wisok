@@ -1,6 +1,7 @@
 import Title from "~/components/title";
 import Image from "next/image";
-import MerchandiseCarousel from "~/components/Merch/MerchandiseCarousel";
+import MerchandiseCarousel from "~/components/Merch/Merchandise";
+import MerchandisePage from "~/components/Merch/Merchandise";
 
 export default function HomePage() {
   return (
@@ -50,11 +51,11 @@ export default function HomePage() {
           style={{
             backgroundImage: "url('/merchandise/background-merch.png')",
           }}
-          className="flex h-max flex-1 flex-col items-center justify-center bg-contain bg-center bg-no-repeat"
+          className="flex h-max flex-1 flex-col items-center justify-center bg-contain bg-center"
         >
           {/* merchandise */}
           {/* komponen merch disini */}
-          <MerchandiseCarousel />
+          <MerchandisePage />
         </div>
         <div className="flex h-max flex-1 flex-col items-center justify-center bg-green-400">
           {/* timeline */}

@@ -15,10 +15,11 @@ const fraunces = Fraunces({
   subsets: ["latin"],
   display: "swap",
 });
-const MerchandiseCarousel = () => {
+
+const MerchandisePage = () => {
   return (
     <div
-      className={`flex h-screen w-full flex-col items-center justify-center p-8 ${fraunces.className}`}
+      className={`flex min-h-screen w-full flex-col items-center justify-center p-8 ${fraunces.className}`}
     >
       {/* Header */}
       <div className="relative mb-10 flex flex-col items-center">
@@ -29,7 +30,7 @@ const MerchandiseCarousel = () => {
           height={111}
           className="absolute left-[-4rem] top-[6rem] -translate-x-1/2 rotate-180 transform"
           style={{
-            filter: "drop-shadow(0 0 10px rgba(255, 140, 217, 0.8))",
+            filter: "drop-shadow(0 0 20px rgba(255, 140, 217, 1))",
           }}
         />
         <Image
@@ -39,7 +40,7 @@ const MerchandiseCarousel = () => {
           height={174}
           className="absolute right-[-3.5rem] top-[1rem] translate-x-1/2 transform"
           style={{
-            filter: "drop-shadow(0 0 10px rgba(255, 140, 217, 0.8))",
+            filter: "drop-shadow(0 0 20px rgba(255, 140, 217, 1))",
           }}
         />
 
@@ -50,14 +51,17 @@ const MerchandiseCarousel = () => {
       </div>
 
       {/* Carousel */}
-      <Carousel className="w-full max-w-[400px]">
-        <CarouselContent className="h-[416px]">
+      <Carousel className="w-full max-w-[416px]">
+        <CarouselContent>
           {[...Array(5)].map((_, index) => (
             <CarouselItem key={index}>
-              <div className="rounded-lg p-1">
+              <div className="aspect-square overflow-hidden rounded-[1.7rem] p-4">
                 <div
-                  className="flex h-[400px] w-full items-end justify-center rounded-[1.7rem] bg-[url(/merchandise/background-merch.png)] bg-cover bg-center bg-no-repeat pb-12 text-[2rem] font-semibold text-[#FEE59A] ring-4 ring-black ring-opacity-40"
-                  style={{ textShadow: "4.71px 7.07px 20px #FFBF51" }}
+                  className="flex h-full w-full items-end justify-center rounded-[1.7rem] border-[7px] border-black border-opacity-30 bg-[url(/merchandise/background-merch.png)] bg-cover bg-center bg-no-repeat pb-8 text-[2rem] font-semibold text-[#FEE59A] ring-4 ring-black ring-opacity-40"
+                  style={{
+                    textShadow: "4.71px 7.07px 20px #FFBF51",
+                    boxShadow: "0px 0px 15px 3px rgba(255, 230, 178, 1)",
+                  }}
                 >
                   &lt;Merchandise&gt;
                 </div>
@@ -91,4 +95,4 @@ const MerchandiseCarousel = () => {
   );
 };
 
-export default MerchandiseCarousel;
+export default MerchandisePage;
