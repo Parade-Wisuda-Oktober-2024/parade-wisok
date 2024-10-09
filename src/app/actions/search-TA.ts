@@ -3,7 +3,6 @@
 import { z } from "zod";
 import { actionClient } from "~/lib/safe-action";
 import { prisma } from "../../server/db";
-import { revalidatePath } from "next/cache";
 
 export const searchTA = actionClient
   .schema(
