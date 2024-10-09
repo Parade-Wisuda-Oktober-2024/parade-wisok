@@ -32,6 +32,10 @@ const Details: React.FC = () => {
                 <Title2 className="text-[104px]">OCTOBER 29TH</Title2>
                 <Title2 className="text-[104px]">2024</Title2>
             </div>
+                <img
+                src="/VIS 16.svg"
+                alt="VIS 16"
+                className="absolute bottom-[-400px] left-1/2 transform -translate-x-1/2 w-screen max-w-none"/>
         </div>
     );
 };
