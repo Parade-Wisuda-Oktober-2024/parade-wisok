@@ -7,7 +7,7 @@ import { prisma } from "../../server/db";
 export const searchTA = actionClient
   .schema(
     z.object({
-      wisudawanName: z.string().default(""),
+      nameOrTitle: z.string().default(""),
       faculty: z.string().default(""),
       major: z.string().default(""),
       limit: z.number().min(1).default(6),
@@ -15,36 +15,46 @@ export const searchTA = actionClient
     }),
   )
   .action(
-    async ({ parsedInput: { wisudawanName, faculty, major, limit, page } }) => {
+    async ({ parsedInput: { nameOrTitle, faculty, major, limit, page } }) => {
       const offset = (page - 1) * limit;
 
       try {
         const TARecords = await prisma.tA.findMany({
           where: {
-            wisudawan: {
-              profile: {
-                AND: [
-                  {
-                    name: {
-                      contains: wisudawanName,
-                      mode: "insensitive",
-                    },
+            OR: [
+              {
+                wisudawan: {
+                  profile: {
+                    AND: [
+                      {
+                        name: {
+                          contains: nameOrTitle,
+                          mode: "insensitive",
+                        },
+                      },
+                      {
+                        faculty: {
+                          contains: faculty,
+                          mode: "insensitive",
+                        },
+                      },
+                      // {
+                      //   major: {
+                      //     contains: major,
+                      //     mode: "insensitive",
+                      //   },
+                      // },
+                    ],
                   },
-                  {
-                    faculty: {
-                      contains: faculty,
-                      mode: "insensitive",
-                    },
-                  },
-                  // {
-                  //   major: {
-                  //     contains: major,
-                  //     mode: "insensitive",
-                  //   },
-                  // },
-                ],
+                },
               },
-            },
+              {
+                title: {
+                  contains: nameOrTitle,
+                  mode: "insensitive",
+                },
+              },
+            ],
           },
           select: {
             title: true,

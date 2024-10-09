@@ -13,14 +13,14 @@ const SearchTAExp = () => {
     const input = e.target.value;
     setName(input);
 
-    execute({ wisudawanName: input, faculty: "", major: "", page: page });
+    execute({ nameOrTitle: input, faculty: "", major: "", page: page });
   };
 
   const buttonOnClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     const value = Number(e.currentTarget.value);
     setPage(value);
 
-    execute({ wisudawanName: name, faculty: "", major: "", page: value });
+    execute({ nameOrTitle: name, faculty: "", major: "", page: value });
   };
 
   return (
@@ -47,7 +47,7 @@ const SearchTAExp = () => {
             type="text"
             value={name}
             onChange={onChange}
-            placeholder="Search Wisudawan Name"
+            placeholder="Search name / title"
           />
         </div>
         <div className="my-3 flex gap-5">
