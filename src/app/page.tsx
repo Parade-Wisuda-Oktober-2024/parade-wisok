@@ -1,4 +1,5 @@
 import Title from "~/components/title";
+import FAQ from "~/components/FAQ/FAQpage";
 import Image from "next/image";
 import MerchandiseCarousel from "~/components/Merch/Merchandise";
 import MerchandisePage from "~/components/Merch/Merchandise";
@@ -64,10 +65,11 @@ export default function HomePage() {
           <br></br>
           {/* komponen sponsor disini */}
         </div>
-        <div className="relative flex h-full flex-1 flex-col items-center">
+        <div className="flex h-full flex-1 flex-col items-center relative">
           {/* FAQ */}
           <Title className="mb-10">FAQ</Title>
           <br></br>
+          <FAQ></FAQ>
           <Image
             src={"/VIS-18.png"}
             alt={"VIS-18"}
