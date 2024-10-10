@@ -10,13 +10,13 @@ const Sponsors: React.FC = () => {
   return (
     <section id="sponsors" className="w-full py-16 flex flex-col items-center sponsors-wrapper">
       <Title>Sponsorship</Title>
-      <InfiniteCarousel>
+      <InfiniteCarousel direction="left">
         <SponsorCard sponsorImgUrl={Sponsor1} />
         <SponsorCard sponsorImgUrl={Sponsor2} />
         <SponsorCard sponsorImgUrl={Sponsor3} />
         <SponsorCard sponsorImgUrl={Sponsor4} />
       </InfiniteCarousel>
-      <InfiniteCarousel>
+      <InfiniteCarousel direction="right">
         <SponsorCard sponsorImgUrl={Sponsor1} />
         <SponsorCard sponsorImgUrl={Sponsor2} />
         <SponsorCard sponsorImgUrl={Sponsor3} />
