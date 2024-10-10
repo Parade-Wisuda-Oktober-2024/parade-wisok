@@ -1,6 +1,8 @@
 import Title from "~/components/title";
 import FAQ from "~/components/FAQ/FAQpage";
 import Image from "next/image";
+import MerchandiseCarousel from "~/components/Merch/Merchandise";
+import MerchandisePage from "~/components/Merch/Merchandise";
 
 export default function HomePage() {
   return (
@@ -39,18 +41,17 @@ export default function HomePage() {
           />
         </div>
       </div>
-      <div className="flex bg-contain bg-center bg-no-repeat min-h-[280vh] flex-col bg-[url('/Rectangle-1.png')] md:h-[888dvh]">
+      <div className="flex min-h-[280vh] flex-col bg-[url('/Rectangle-1.png')] bg-contain bg-center bg-no-repeat md:h-[888dvh]">
         <div className="flex h-max flex-1 flex-col items-center justify-center bg-red-400">
           {/* welcome */}
           <Title>WELCOME</Title>
           <br></br>
           {/* komponen welcome disini */}
         </div>
-        <div className="flex h-max flex-1 flex-col items-center justify-center bg-yellow-400">
+        <div className="flex h-max flex-1 flex-col items-center justify-center">
           {/* merchandise */}
-          <Title>MERCH</Title>
-          <br></br>
           {/* komponen merch disini */}
+          <MerchandisePage />
         </div>
         <div className="flex h-max flex-1 flex-col items-center justify-center bg-green-400">
           {/* timeline */}
