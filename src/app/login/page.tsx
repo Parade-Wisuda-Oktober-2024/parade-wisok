@@ -34,7 +34,7 @@ export default function Login()  {
     className="h-screen flex items-center justify-center bg-opacity-80"
     style={{ background: 'linear-gradient(to right,  #92007F,#542980)' }}
   >
-        <div className="max-w-2xl w-full h-[75%] max-h-[500px] px-20 pb-15 relative bg-[#3a0758] bg-opacity-35 rounded-lg shadow-lg text-center z-10">
+        <div className="w-full h-[100%] sm:max-w-2xl sm:h-[75%] px-20 pb-15 pt-40 sm:pt-[0] relative bg-[#3a0758] bg-opacity-35 rounded-lg shadow-lg text-center z-10">
             <div className="relative flex flex-col items-center justify-center mb-10 mt-12 h-[100px]">
                 {/* Burung kiri */}
                 <Image src={'/login/VIS 11.png'} alt='burung' width={120} height={120} className='absolute bottom-[15px] left-[15px] w-[60px] h-[30px] rotate-[140deg] sm:bottom-[-10px] sm:left-[120px] md:bottom-[-35px] md:left-[100px] lg:bottom-[-60px] lg:left-[75px] sm:w-[80px] sm:h-[60px] md:w-[80px] md:h-[80px] lg:w-[125px] lg:h-[125px]' />
@@ -52,7 +52,7 @@ export default function Login()  {
                 <input type="text" id="username" placeholder="Username" {...register('username', { required: 'username is required' })} className="w-full px-4 py-1  font-paragraph text-xl bg-[#8063bb] bg-opacity-60 text-white rounded-md focus:ring-2 focus:ring-pink-400 focus:outline-none"></input>
                 <p className='text-left text-white text-lg'>Password</p>
                 <input type="password" id="password" placeholder="Password"  {...register('password', { required: 'Password is required' })} className="w-full px-4 py-1 font-paragraph text-xl bg-[#8063bb] bg-opacity-60 text-white rounded-md focus:ring-2 focus:ring-pink-400 focus:outline-none"></input>
-                <button type="submit" className="absolute bottom-[10px] left-[80px] w-1/3  text-[#3a0758] bg-[#FFD866] bg-opacity-85 py-2 rounded-lg font-paragraph sm:left-[180px] sm:bottom-[15px] md:left-[190px] lg:left-[200px] lg:bottom-[20px] hover:bg-opacity-100 transition duration-300">
+                <button type="submit" className="absolute bottom-[10px] left-1/2 transform -translate-x-1/2 w-1/3  text-[#3a0758] bg-[#FFD866] bg-opacity-85 py-2 rounded-lg font-paragraph hover:bg-opacity-100 transition duration-300">
                 <Image src={'/login/VIS 11.png'} alt='burung' width={80} height={120} className='absolute bottom-[0px] left-[-10px] w-[40px] h-[20px] opacity-70 rotate-[135deg] sm:bottom-[-5px] sm:left-[15px] md:bottom-[-8px] md:left-[20px] lg:bottom-[-10px] lg:left-[5px] sm:w-[70px] sm:h-[30px] md:w-[75px] md:h-[35px] lg:w-[100px] lg:h-[40px]' />
                 <Image src={'/login/VIS 12.png'} alt='bintang' width={120} height={120} className='absolute bottom-[-2px] left-[20px]  w-[20px] h-[20px] opacity-70 sm:top-[22px] sm:left-[65px] md:top-[22px] md:left-[75px] lg:top-[21px] lg:left-[75px] sm:w-[15px] sm:h-[15px] md:w-[25px] md:h-[20px] lg:w-[30px] lg:h-[20px] m-0'/>
                 LOGIN
