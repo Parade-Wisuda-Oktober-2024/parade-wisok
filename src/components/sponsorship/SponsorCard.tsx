@@ -10,7 +10,7 @@ const SponsorCard: React.FC<SponsorCardProps> = ({
   altText = "Sponsor Logo",
 }) => {
   return (
-    <div className="sponsor-card p-4 md:p-6 shadow-xl rounded-xl bg-[#fbfbfb flex-shrink-0">
+    <div className="sponsor-card p-4 md:p-6 shadow-xl rounded-xl ">
       <Image
         src={sponsorImgUrl} 
         alt={altText}

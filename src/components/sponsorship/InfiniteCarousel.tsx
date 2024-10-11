@@ -8,7 +8,8 @@ interface Props {
 const InfiniteCarousel: React.FC<Props> = ({ children, direction = "left" }) => {
   return (
     <div className="sponsor-slider overflow-hidden w-full relative">
-      <div className={`sponsor-cards mt-10 ${direction === "left" ? "scroll-left" : "scroll-right"}`}>
+      <div className={`mt-10 ${direction === "left" ? "scroll-left" : "scroll-right"}`}>
+        {children}
         {children}
         {children}
       </div>

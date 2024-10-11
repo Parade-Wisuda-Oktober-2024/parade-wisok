@@ -15,8 +15,16 @@ const Sponsors: React.FC = () => {
         <SponsorCard sponsorImgUrl={Sponsor2} />
         <SponsorCard sponsorImgUrl={Sponsor3} />
         <SponsorCard sponsorImgUrl={Sponsor4} />
+        <SponsorCard sponsorImgUrl={Sponsor1} />
+        <SponsorCard sponsorImgUrl={Sponsor2} />
+        <SponsorCard sponsorImgUrl={Sponsor3} />
+        <SponsorCard sponsorImgUrl={Sponsor4} />
       </InfiniteCarousel>
       <InfiniteCarousel direction="right">
+        <SponsorCard sponsorImgUrl={Sponsor1} />
+        <SponsorCard sponsorImgUrl={Sponsor2} />
+        <SponsorCard sponsorImgUrl={Sponsor3} />
+        <SponsorCard sponsorImgUrl={Sponsor4} />
         <SponsorCard sponsorImgUrl={Sponsor1} />
         <SponsorCard sponsorImgUrl={Sponsor2} />
         <SponsorCard sponsorImgUrl={Sponsor3} />

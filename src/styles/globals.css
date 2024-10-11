@@ -71,13 +71,13 @@
         transform: translateX(0%);
     }
     100% {
-        transform: translateX(-33.333333333333333333%);
+        transform: translateX(calc(-300px * 8));
     }
 }
 
 @keyframes scroll-right {
     0% {
-        transform: translateX(-33.333333333333333333%);
+        transform: translateX(calc(-300px * 8));
     }
     100% {
         transform: translateX(0%);
@@ -85,23 +85,23 @@
 }
 
 .sponsor-slider {
-    white-space: nowrap;
     overflow: hidden;
     width: 100%;
     position: relative;
+	margin: auto;
 }
 
-.sponsor-cards {
-    display: inline-flex;
-    gap: 12px;
-}
 
 .scroll-left {
-    animation: scroll-left 10s linear infinite; 
+    display: inline-flex;
+    animation: scroll-left 30s linear infinite;
+    width: calc(300px*16)
 }
 
 .scroll-right {
-    animation: scroll-right 10s linear infinite; 
+    display: inline-flex;
+    animation: scroll-right 30s linear infinite;
+    width: calc(300px*16)
 }
 
 .sponsor-card {
@@ -110,8 +110,68 @@
     width: 300px;
     background: var(--card);
     transition: transform 0.3s ease-in-out;
+
 }
 
 .sponsor-card:hover {
     transform: scale(1.03);
+}
+
+
+@media (max-width: 768px) {
+    .sponsor-card {
+        width: 150px;
+    }
+
+    .scroll-left,
+    .scroll-right {
+        width: calc(150px * 16); 
+    }
+
+    @keyframes scroll-left {
+        0% {
+            transform: translateX(0%);
+        }
+        100% {
+            transform: translateX(calc(-150px * 8)); 
+        }
+    }
+
+    @keyframes scroll-right {
+        0% {
+            transform: translateX(calc(-150px * 8));
+        }
+        100% {
+            transform: translateX(0%);
+        }
+    }
+}
+
+@media (max-width: 640px) {
+    .sponsor-card {
+        width: 100px;
+    }
+
+    .scroll-left,
+    .scroll-right {
+        width: calc(100px * 16); 
+    }
+
+    @keyframes scroll-left {
+        0% {
+            transform: translateX(0%);
+        }
+        100% {
+            transform: translateX(calc(-100px * 8)); 
+        }
+    }
+
+    @keyframes scroll-right {
+        0% {
+            transform: translateX(calc(-100px * 8));
+        }
+        100% {
+            transform: translateX(0%);
+        }
+    }
 }
