@@ -3,6 +3,8 @@ import FAQ from "~/components/FAQ/FAQpage";
 import Image from "next/image";
 import WelcomePage from "~/components/welcome/WelcomePage";
 import Details from "~/components/welcome/WelcomeDetails";
+import MerchandiseCarousel from "~/components/Merch/Merchandise";
+import MerchandisePage from "~/components/Merch/Merchandise";
 
 export default function HomePage() {
   return (
@@ -16,6 +18,7 @@ export default function HomePage() {
         </div>
         <div className="flex flex-1 items-center justify-center bg-red-400">
           <Title>MERCH</Title>
+          <MerchandisePage />
         </div>
         <div className="flex flex-1 items-center justify-center">
           <Title>TIMELINE</Title>
