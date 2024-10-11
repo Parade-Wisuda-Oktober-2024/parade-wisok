@@ -30,7 +30,7 @@ export const getAllGraduates = actionClient.schema(schema).action(
         profile: {
           name: { contains: name },
           faculty: { contains: faculty },
-          // major: { contains: major },
+          major: { contains: major },
         },
       },
       skip: offset,
