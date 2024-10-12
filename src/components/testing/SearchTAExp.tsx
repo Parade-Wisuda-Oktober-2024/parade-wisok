@@ -32,7 +32,7 @@ const SearchTAExp = () => {
               <h3>{ta.title}</h3>
               <p>Wisudawan Name: {ta.wisudawanName}</p>
               <p>Faculty: {ta.faculty}</p>
-              {/* <p>Major: {ta.major}</p> */}
+              <p>Major: {ta.major}</p>
               <p>Likes: {ta.likeCount}</p>
             </div>
           ))

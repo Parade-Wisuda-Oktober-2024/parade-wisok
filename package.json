@@ -27,7 +27,7 @@
   },
   "dependencies": {
     "@auth/prisma-adapter": "^1.6.0",
-    "@paradewisokto2024/database": "git+https://github.com/Parade-Wisuda-Oktober-2024/database.git#3a01fcba0361e4e899f64f5eaa45446a6e41c938",
+    "@paradewisokto2024/database": "git+https://github.com/Parade-Wisuda-Oktober-2024/database.git#426127f78aaa7dade50ff2bc60692985ea5d35f7",
     "@prisma/client": "^5.18.0",
     "@t3-oss/env-nextjs": "^0.10.1",
     "bcrypt": "^5.1.1",

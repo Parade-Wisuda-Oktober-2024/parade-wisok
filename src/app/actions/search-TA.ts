@@ -38,12 +38,12 @@ export const searchTA = actionClient
                           mode: "insensitive",
                         },
                       },
-                      // {
-                      //   major: {
-                      //     contains: major,
-                      //     mode: "insensitive",
-                      //   },
-                      // },
+                      {
+                        major: {
+                          contains: major,
+                          mode: "insensitive",
+                        },
+                      },
                     ],
                   },
                 },
@@ -64,7 +64,7 @@ export const searchTA = actionClient
                   select: {
                     name: true,
                     faculty: true,
-                    // major: true,
+                    major: true,
                   },
                 },
               },
@@ -83,7 +83,7 @@ export const searchTA = actionClient
           title: ta.title,
           wisudawanName: ta.wisudawan?.profile?.name ?? "Unknown",
           faculty: ta.wisudawan?.profile?.faculty ?? "Unknown",
-          // major: ta.wisudawan?.profile.major || "Unknown",
+          major: ta.wisudawan?.profile?.major ?? "Unknown",
           likeCount: ta._count.likes,
         }));
 
