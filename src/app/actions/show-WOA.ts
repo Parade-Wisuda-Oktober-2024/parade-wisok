@@ -23,7 +23,7 @@ export const getAllWOA = actionClient.schema(schema).action(
     const limit = 16;
     const offset = (page - 1) * limit;
 
-    const data = await prisma.wOA.findMany({
+    const data = await prisma.woa.findMany({
       where:{
         to: {contains: to},
         content: {contains: content},
