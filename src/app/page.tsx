@@ -12,12 +12,11 @@ export default function HomePage() {
     <main className="relative flex flex-col justify-end overflow-hidden font-header">
       <div className="fixed inset-0 bg-[url('/Welcome.png')] bg-center bg-containbg-no-repeat z-[-1] bg-cover"></div>
       <WelcomePage />
-      <div className="flex flex-col bg-[url('/Rectangle-1.png')] bg-cover bg-center bg-no-repeat min-h-[280vh] md:h-[888dvh]">
+      <div className="flex flex-col bg-[url('/Rectangle-1.png')] bg-cover bg-center bg-no-repeat lg:min-h-[280vh] lg:h-[888dvh] md:h-[460dvh] h-[300dvh]">
         <div className="flex flex-1 items-center justify-center">
           <Details/>
         </div>
         <div className="flex flex-1 items-center justify-center bg-red-400">
-          <Title>MERCH</Title>
           <MerchandisePage />
         </div>
         <div className="flex flex-1 items-center justify-center">
