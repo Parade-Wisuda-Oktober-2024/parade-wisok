@@ -57,6 +57,7 @@ export const searchTA = actionClient
             ],
           },
           select: {
+            id: true,
             title: true,
             wisudawan: {
               select: {
@@ -80,6 +81,7 @@ export const searchTA = actionClient
         });
 
         const data = TARecords.map((ta) => ({
+          taId: ta.id,
           title: ta.title,
           wisudawanName: ta.wisudawan?.profile?.name ?? "Unknown",
           faculty: ta.wisudawan?.profile?.faculty ?? "Unknown",
