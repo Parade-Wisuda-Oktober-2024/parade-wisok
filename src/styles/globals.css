@@ -71,13 +71,13 @@
         transform: translateX(0%);
     }
     100% {
-        transform: translateX(calc(-300px * 8));
+        transform: translateX(calc(-300px * 8 - 64px));
     }
 }
 
 @keyframes scroll-right {
     0% {
-        transform: translateX(calc(-300px * 8));
+        transform: translateX(calc(-300px * 8 - 64px));
     }
     100% {
         transform: translateX(0%);
@@ -95,22 +95,25 @@
 .scroll-left {
     display: inline-flex;
     animation: scroll-left 30s linear infinite;
-    width: calc(300px*16)
+    width: calc(300px*16 + 128px)
 }
 
 .scroll-right {
     display: inline-flex;
     animation: scroll-right 30s linear infinite;
-    width: calc(300px*16)
+    width: calc(300px*16 + 128px)
 }
 
 .sponsor-card {
     display: inline-block;
     flex-shrink: 0;
     width: 300px;
-    background: var(--card);
     transition: transform 0.3s ease-in-out;
-
+    background: rgba(45, 38, 72, 0.3);
+    border: 2px solid;
+    border-color: #9333ea; 
+    padding: 4px;
+    position: relative;
 }
 
 .sponsor-card:hover {
@@ -125,7 +128,7 @@
 
     .scroll-left,
     .scroll-right {
-        width: calc(150px * 16); 
+        width: calc(150px * 16 + 64px); 
     }
 
     @keyframes scroll-left {
@@ -133,13 +136,13 @@
             transform: translateX(0%);
         }
         100% {
-            transform: translateX(calc(-150px * 8)); 
+            transform: translateX(calc(-150px * 8 - 32px)); 
         }
     }
 
     @keyframes scroll-right {
         0% {
-            transform: translateX(calc(-150px * 8));
+            transform: translateX(calc(-150px * 8 - 32px));
         }
         100% {
             transform: translateX(0%);
@@ -154,7 +157,7 @@
 
     .scroll-left,
     .scroll-right {
-        width: calc(100px * 16); 
+        width: calc(100px * 16 + 32px); 
     }
 
     @keyframes scroll-left {
@@ -162,13 +165,13 @@
             transform: translateX(0%);
         }
         100% {
-            transform: translateX(calc(-100px * 8)); 
+            transform: translateX(calc(-100px * 8 - 16px)); 
         }
     }
 
     @keyframes scroll-right {
         0% {
-            transform: translateX(calc(-100px * 8));
+            transform: translateX(calc(-100px * 8 - 16px));
         }
         100% {
             transform: translateX(0%);
