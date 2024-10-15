@@ -28,6 +28,7 @@ import {
 import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
 import { Switch } from "../ui/switch";
 import { signIn, signOut } from "next-auth/react";
+import { send } from "process";
 
 const fakultas = [
   "",
@@ -89,12 +90,22 @@ export function CreateWOA({
       console.log("sign in success");
     }
   };
+
   const [openName, setOpenName] = React.useState(false);
   const [valueName, setValueName] = React.useState("");
   const [openFilter, setOpenFilter] = React.useState(false);
   const [valueFilter, setValueFilter] = React.useState("");
-  const [filteredData, setFilteredData] = React.useState(users);
-
+  const [filteredData, setFilteredData] = React.useState(
+    users.filter((users) => {
+      if (senderId) {
+        if (users.id !== senderId) {
+          return users;
+        }
+      } else {
+        return users;
+      }
+    }),
+  );
   const handleFilter = (value: string) => {
     const filtered = users.filter((users) =>
       users.profile?.faculty?.toLowerCase().includes(value.toLowerCase()),
