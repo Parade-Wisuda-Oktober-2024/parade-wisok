@@ -6,6 +6,7 @@ const AboutUsPage = () => {
     <div >
       <Visi></Visi>
       {/* ornogram disini */}
+
    
     </div>
   )
