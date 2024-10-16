@@ -58,20 +58,6 @@ export default function Visi (){
                     </div>
 
                 </div>
-                {/* <div className="h-18 md:h-full flex  flex-col items-center w-72 md:w-1/3 mx-auto md:mx-0 ">
-                    <h2 className="md:text-5xl text-3xl  pt-2 bg-gradient-text-aboutus pb-4">MISI</h2>
-                    <div className="rounded-3xl h-72 overflow-hidden bg-gradient-vm">
-                        <Image className="absolute w-72 " alt="cloud-vm-1" src={'/vismis/cloud-vm-1.svg'} width={181} height={516} style ={{objectFit : 'cover'}}/>
-                        <p style={{ color: '#D9D9D9' }} className="relative text-left text-sm  h-32 overflow-y-scroll z-0 py-0 px-6 md:px-0 my-0 md:my-0 -top-10 md-top-0 md:text-2xl">
-                        1. Menciptakan wadah apresiasi yang meriah di Parade Wisuda Oktober 2024 <br/>
-                        2. Menciptakan wadah kolaborasi untuk setiap elemen KM ITB <br/>
-                        3. Merancang konsep Parade Wisuda Oktober 2024 yang inovatif, efektif, dan efisien <br/>
-                        4. Menciptakan lingkungan kepanitian Parade Wisuda Oktober 2024 yang ergonomis<br/>
-                        </p>
-                        <Image className="absolute -bottom-24 md:top-0 w-72"  alt="cloud-vm-2" src={'/vismis/cloud-vm-2.svg'}width={181} height={516} style ={{objectFit : 'cover'}} />
-                    </div>
-
-                </div> */}
 
             </div>
 
