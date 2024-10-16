@@ -1,3 +1,4 @@
+"use client" ;
 import radio8eh from "public/sponsorship/medpart/8eh-radio-itb.png";
 import aiesec from "public/sponsorship/medpart/aiesec.png";
 import eventdetect from "public/sponsorship/medpart/event-detect.png";
@@ -27,8 +28,29 @@ import SponsorCard from "../../components/sponsorship/SponsorCard";
 import InfiniteCarousel from "../../components/sponsorship/InfiniteCarousel";
 import Title from "~/components/title";
 import BackgroundImage from "public/sponsorship/bg-sponsorship.png";
+import { motion } from 'framer-motion';
+import React from 'react';
 
 const Sponsors: React.FC = () => {
+  const container = {
+    hidden: { opacity: 1, scale: 0 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        delayChildren: 0.3,
+        staggerChildren: 0.2
+      }
+    }
+  };
+  
+  const item = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1
+    }
+  };
   return (
     <section
       className="flex w-full flex-col items-center py-16"
@@ -40,15 +62,22 @@ const Sponsors: React.FC = () => {
       }}
     >
       <Title className="mb-5">Sponsorship</Title>
-      <div className="grid-col-1 md:grid-col-2 lg:grid-col-3 m-auto mb-10 mt-10 grid w-full max-w-7xl">
-        <div className="flex flex-wrap justify-center">
-          <SponsorCard sponsorImgUrl={bca} />
-          <SponsorCard sponsorImgUrl={esize} />
-          <SponsorCard sponsorImgUrl={frestea} />
-          <SponsorCard sponsorImgUrl={mahakaX} />
-          <SponsorCard sponsorImgUrl={propan} />
+      <motion.div
+        className="container"
+        variants={container}
+        initial="hidden"
+        animate="visible"
+      >
+        <div className="grid-col-1 md:grid-col-2 lg:grid-col-3 m-auto mb-10 mt-10 grid w-full max-w-7xl">
+          <div className="flex flex-wrap justify-center">
+          {[bca, esize, frestea, mahakaX, propan].map((sponsorImgUrl, index) => (
+              <motion.div key={index} variants={item}>
+                <SponsorCard sponsorImgUrl={sponsorImgUrl} />
+              </motion.div>
+            ))}
+          </div>
         </div>
-      </div>
+      </motion.div>
       <Title className="mb-5">Media Partner</Title>
       <InfiniteCarousel direction="left">
         <SponsorCard sponsorImgUrl={radio8eh} />
