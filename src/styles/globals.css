@@ -64,3 +64,19 @@
         @apply text-xs sm:text-xs md:text-sm font-paragraph;
     }
 }
+@layer utilities {
+    .bg-gradient-text-aboutus {
+      background: linear-gradient(180deg, #FFF3D9 32.85%, #FFD787 73.26%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+      text-shadow: 4px 4px 20px #FF8CD9;
+      font-style: normal;
+      font-weight: 700;
+    }
+    .bg-gradient-vm {
+      background: linear-gradient(180deg, #9245B9 0%, #43187D 100%);
+    }
+  }
+    
