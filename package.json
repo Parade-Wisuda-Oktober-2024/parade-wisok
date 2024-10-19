@@ -29,6 +29,8 @@
     "@auth/prisma-adapter": "^1.6.0",
     "@paradewisokto2024/database": "git+https://github.com/Parade-Wisuda-Oktober-2024/database.git#426127f78aaa7dade50ff2bc60692985ea5d35f7",
     "@prisma/client": "^5.18.0",
+    "@radix-ui/react-dialog": "^1.1.2",
+    "@radix-ui/react-menubar": "^1.1.2",
     "@radix-ui/react-accordion": "^1.2.1",
     "@radix-ui/react-collapsible": "^1.1.1",
     "@radix-ui/react-slot": "^1.1.0",
