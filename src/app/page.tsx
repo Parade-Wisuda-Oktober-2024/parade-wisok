@@ -5,10 +5,10 @@ import WelcomePage from "~/components/welcome/WelcomePage";
 import Details from "~/components/welcome/WelcomeDetails";
 import MerchandiseCarousel from "~/components/Merch/Merchandise";
 import MerchandisePage from "~/components/Merch/Merchandise";
+import Timeline from "~/components/Timeline/TLpage";
 
 export default function HomePage() {
   return (
-    
     <main className="relative flex flex-col justify-end overflow-hidden font-header">
       <div className="fixed inset-0 bg-[url('/Welcome.png')] bg-center bg-containbg-no-repeat z-[-1] bg-cover"></div>
       <WelcomePage />
@@ -19,13 +19,13 @@ export default function HomePage() {
         <div className="flex flex-1 items-center justify-center bg-red-400">
           <MerchandisePage />
         </div>
-        <div className="flex flex-1 items-center justify-center">
-          <Title>TIMELINE</Title>
-        </div>
-        <div className="flex flex-1 items-center justify-center">
+      <div className="flex flex-1 items-center justify-center">
+        <Timeline></Timeline>
+      </div>
+      <div className="flex flex-1 items-center justify-center">
           <Title>SPONSORS</Title>
         </div>
-        <div className="flex flex-1 items-center justify-center relative">
+      <div className="flex flex-1 items-center justify-center relative">
           <Title className="mb-10">FAQ</Title>
           <br></br>
           <FAQ></FAQ>
