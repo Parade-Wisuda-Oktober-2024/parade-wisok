@@ -41,7 +41,7 @@ const OrganogramCard: React.FC<OrganogramCardProps> = ({
             <img src={outerFrame} alt="Outer frmae" className="absolute inset-0 h-full w-full object-cover z-10 rounded-lg" />
 
             {/* image panitia */}
-            <div className="absolute inset-2 z-40 overflow-hidden rounded-lg">
+            <div className="absolute inset-0 z-40 overflow-hidden rounded-lg">
               <Image src={photo} alt="photo" layout="fill" objectFit="cover" />
             </div>
         </div>
