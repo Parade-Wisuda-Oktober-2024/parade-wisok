@@ -9,6 +9,7 @@ import {
 import Title from "~/components/Merch/MerchandiseTitle";
 import Image from "next/image";
 import { Fraunces } from "next/font/google";
+import { cardMerch } from "../../app/merchandise/datamerch";
 
 // Fraunces Font
 const fraunces = Fraunces({
@@ -54,17 +55,27 @@ const MerchandisePage = () => {
       <div className="relative flex w-full items-center justify-center">
         <Carousel className="w-full max-w-[250px] md:max-w-[416px]">
           <CarouselContent>
-            {[...Array(5)].map((_, index) => (
+            {cardMerch.map((item, index) => (
               <CarouselItem key={index}>
                 <div className="aspect-square overflow-hidden rounded-[1.7rem] p-4">
                   <div
-                    className="flex h-full w-full items-end justify-center rounded-[1.7rem] border-[7px] border-black border-opacity-30 bg-[url(/merchandise/background-merch.png)] bg-cover bg-center bg-no-repeat pb-8 font-semibold text-[#FEE59A] ring-4 ring-black ring-opacity-40 md:text-[2rem]"
+                    className="flex flex-col h-full w-full items-center justify-center rounded-[1.7rem] border-[7px] border-black border-opacity-30 bg-[url(/merchandise/background-merch.png)] bg-cover bg-center bg-no-repeat font-semibold text-[#FEE59A] ring-4 ring-black ring-opacity-40"
                     style={{
                       textShadow: "4.71px 7.07px 20px #FFBF51",
                       boxShadow: "0px 0px 15px 3px rgba(255, 230, 178, 1)",
                     }}
                   >
-                    &lt;Merchandise&gt;
+                    <div className="w-4/5 aspect-square relative mb-4">
+                      <Image 
+                        src={item.photo} 
+                        alt={item.title} 
+                        fill 
+                        className="object-contain rounded-lg" 
+                      />
+                    </div>
+                    <h1 className="text-center font-header text-lg sm:text-xl lg:text-2xl bg-gradient-to-r from-[#FFF3D9] to-[#FFD787] bg-clip-text text-transparent [text-shadow:2px_2px_10px_#F4D38E] px-2">
+                      {item.title}
+                    </h1>
                   </div>
                 </div>
               </CarouselItem>
@@ -72,9 +83,8 @@ const MerchandisePage = () => {
           </CarouselContent>
 
           {/* Previous/Next Button */}
-          <CarouselPrevious className="absolute left-[-4rem] top-[8rem] flex items-center justify-center md:left-[-8rem] md:top-[12rem]"></CarouselPrevious>
-
-          <CarouselNext className="absolute right-[-4rem] top-[8rem] flex items-center justify-center md:right-[-8rem] md:top-[12rem]"></CarouselNext>
+          <CarouselPrevious className="absolute left-[-4rem] top-1/2 -translate-y-1/2 flex items-center justify-center md:left-[-8rem]" />
+          <CarouselNext className="absolute right-[-4rem] top-1/2 -translate-y-1/2 flex items-center justify-center md:right-[-8rem]" />
         </Carousel>
       </div>
     </div>
