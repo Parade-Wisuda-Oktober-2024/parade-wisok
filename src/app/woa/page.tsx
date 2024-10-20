@@ -2,8 +2,6 @@ import React from "react";
 import Title from "~/components/title";
 import {SearchInput} from "~/components/filter/search";
 import {DropdownFaculty} from "~/components/filter/dropdown-faculty";
-import {Pencil} from "lucide-react";
-import Link from "next/link";
 import {WoaCard} from "~/app/woa/woa-card";
 import FormDialog from "~/app/woa/form-dialog";
 
@@ -19,9 +17,11 @@ export default function Page() {
         {"Wall of Appreciation"}
       </Title>
       <div className="flex gap-4 max-w-full">
-        <SearchInput className='max-h-12 md:w-[50vw] w-min' data-aos="fade-up" data-aos-delay="150"/>
-        <DropdownFaculty className='max-h-12 w-28' data-aos="fade-up"
-                         data-aos-delay="150"/>
+        <React.Suspense fallback={null}>
+          <SearchInput className='max-h-12 md:w-[50vw] w-min' data-aos="fade-up" data-aos-delay="150"/>
+          <DropdownFaculty className='max-h-12 w-28' data-aos="fade-up"
+                           data-aos-delay="150"/>
+        </React.Suspense>
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-10 place-items-center">
         <WoaCard to={"Adi Haditya"}
