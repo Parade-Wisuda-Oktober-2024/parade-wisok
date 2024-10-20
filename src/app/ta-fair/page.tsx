@@ -11,9 +11,31 @@ const Page = () => {
       <NavBar/>
     <div className="relative inset-0 bg-[url('/tafair.png')] z-0 bg-contain bg-center bg-no-repeat min-h-screen size-110%">
       <div className="relative flex flex-col flex-1 items-center justify-center my-5  ">
+
         
-        <div className="relative flex justify-center items-center">
+        <div className="relative flex justify-center items-center w-full py-16">
+          {/* ornaments */}
+          <div className="absolute top-1/3 left-[30%] z-0 h-1/3">
+            <Image
+              src={'/VIS-11-2-1.svg'}
+              alt="/VIS-11-2-1.svg"
+              width={150}
+              height={0}
+            />
+          </div>
+
           <Title>TA Fair</Title>
+          
+          {/* ornaments */}
+          <div className="absolute top-0 right-[30%] z-0 h-1/3">
+            <Image
+              src={'/VIS-11-2.svg'}
+              alt="/VIS-11-2.svg"
+              width={150}
+              height={0}
+              className="rotate-180"
+            />
+          </div>
         </div>
 
 

@@ -72,11 +72,11 @@ export function BlocksLayout ({
             {judulTA}
           </h2>
 
-          <h4 className="font-serif z-10 my-1.5">
+          <h4 className="font-serif z-10 my-1.5 text-lg">
               {penulisTA}
           </h4>
 
-          <h4 className="font-serif z-10 my-1.5">
+          <h4 className="font-serif z-10 my-1.5 text-lg">
               {jurusanPenulis}
           </h4>
 
