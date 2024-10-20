@@ -4,8 +4,6 @@ import { GeistSans } from "geist/font/sans";
 import { type Metadata } from "next";
 import {eagleLake, fraunces, medieval} from "~/styles/font";
 import Image from "next/image";
-import { transform } from "next/dist/build/swc";
-import Title from "~/components/title";
 
 export const metadata: Metadata = {
   title: "Parade Wisokto ITB 2024",
@@ -114,7 +112,6 @@ export function NumberCarouselActive({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <div className="bg-[rgb(250,230,149)] z-0 justify-center items-center rounded-full w-10 h-10">
-
       <div className="relative inset-0 flex z-10 bg-[url('/Ellipse-1.png')] bg-contain bg-no-repeat w-10 h-10 justify-center items-center text-[rgba(45,37,73,255)]">
           {children}
       </div>

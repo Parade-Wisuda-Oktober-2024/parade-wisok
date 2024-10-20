@@ -52,7 +52,6 @@ const Page = () => {
 
       <div className="my-3.5 mx-6 justify-center items-center flex-col">
         <TAblocks/>
-
       </div>
   </div>
       <Footer/>
