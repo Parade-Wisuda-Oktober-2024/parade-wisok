@@ -1,10 +1,10 @@
 import React from 'react'
-import WOAList from '~/components/testing/viewWOAExp'
+import SearchWOAExp from '~/components/testing/viewWOAExp'
 
 const page = () => {
   return (
     <>
-      <WOAList />
+      <SearchWOAExp />
     </>
   )
 }

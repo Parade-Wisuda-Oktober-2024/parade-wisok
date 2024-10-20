@@ -3,106 +3,71 @@ import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
 async function main() {
-  console.log("Start seeding...");
+  // 1. Empty the Database
+  await prisma.wOA.deleteMany({});
+  await prisma.profile.deleteMany({});
+  await prisma.user.deleteMany({});
 
-  const dummyData = [
-    {
-      id: '1',
-      to: "Alice",
-      content: "Welcome to our platform! Let’s get started.",
-      createdAt: new Date('2024-01-01T10:00:00Z')
-    },
-    {
-      id: '2',
-      to: "Bob",
-      content: "Here’s a reminder about your upcoming meeting.",
-      createdAt: new Date('2024-02-15T14:30:00Z')
-    },
-    {
-      id: '3',
-      to: "Charlie",
-      content: "Congratulations on completing your course!",
-      createdAt: new Date('2024-03-10T09:15:00Z')
-    },
-    {
-      id: '4',
-      to: "Diana",
-      content: "Don’t miss our special offers this week.",
-      createdAt: new Date('2024-04-20T16:45:00Z')
-    },
-    {
-      id: '5',
-      to: "Eve",
-      content: "We’d love to hear your feedback.",
-      createdAt: new Date('2024-05-05T12:00:00Z')
-    },
-    {
-      id: '11',
-      to: "Alice",
-      content: "Welcome to our platform! Let’s get started.",
-      createdAt: new Date('2024-01-01T10:00:00Z')
-    },
-    {
-      id: '12',
-      to: "Bob",
-      content: "Here’s a reminder about your upcoming meeting.",
-      createdAt: new Date('2024-02-15T14:30:00Z')
-    },
-    {
-      id: '13',
-      to: "Charlie",
-      content: "Congratulations on completing your course!",
-      createdAt: new Date('2024-03-10T09:15:00Z')
-    },
-    {
-      id: '14',
-      to: "Diana",
-      content: "Don’t miss our special offers this week.",
-      createdAt: new Date('2024-04-20T16:45:00Z')
-    },
-    {
-      id: '15',
-      to: "Eve",
-      content: "We’d love to hear your feedback.",
-      createdAt: new Date('2024-05-05T12:00:00Z')
-    },
-    {
-      id: '21',
-      to: "Alice",
-      content: "Welcome to our platform! Let’s get started.",
-      createdAt: new Date('2024-01-01T10:00:00Z')
-    },
-    {
-      id: '22',
-      to: "Bob",
-      content: "Here’s a reminder about your upcoming meeting.",
-      createdAt: new Date('2024-02-15T14:30:00Z')
-    },
-    {
-      id: '23',
-      to: "Charlie",
-      content: "Congratulations on completing your course!",
-      createdAt: new Date('2024-03-10T09:15:00Z')
-    },
-    {
-      id: '24',
-      to: "Diana",
-      content: "Don’t miss our special offers this week.",
-      createdAt: new Date('2024-04-20T16:45:00Z')
-    },
-    {
-      id: '25',
-      to: "Eve",
-      content: "We’d love to hear your feedback.",
-      createdAt: new Date('2024-05-05T12:00:00Z')
-    },
-  ];
+  console.log('Database emptied.');
 
-  for (const woa of dummyData) {
-    await prisma.wOA.create({ data: woa });
-  }
+  // 2. Create Users with Profiles
+  const user1 = await prisma.user.create({
+    data: {
+      id: 'user1-id',
+      nim: '12345678',
+      passwordHash: 'hashed_password_1',
+      role: 'USER',
+      profile: {
+        create: {
+          name: 'John Doe',
+          faculty: 'Engineering',
+          major: 'Computer Science',
+          campus: 'Main Campus',
+        },
+      },
+    },
+  });
 
-  console.log("Seeding finished.");
+  const user2 = await prisma.user.create({
+    data: {
+      id: 'user2-id',
+      nim: '87654321',
+      passwordHash: 'hashed_password_2',
+      role: 'USER',
+      profile: {
+        create: {
+          name: 'Jane Smith',
+          faculty: 'Business',
+          major: 'Marketing',
+          campus: 'City Campus',
+        },
+      },
+    },
+  });
+
+  console.log('Users with profiles created:', { user1, user2 });
+
+  // 3. Create WOA Entries
+  await prisma.wOA.createMany({
+    data: [
+      {
+        id: 'woa1-id',
+        userId: user1.id,
+        sender: user2.id,
+        anon: false,
+        content: 'This is a message from User 2 to User 1.',
+      },
+      {
+        id: 'woa2-id',
+        userId: user2.id,
+        sender: user1.id,
+        anon: true,
+        content: 'An anonymous message from User 1 to User 2.',
+      },
+    ],
+  });
+
+  console.log('WOA entries created.');
 }
 
 main()
