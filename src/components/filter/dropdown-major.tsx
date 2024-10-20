@@ -32,7 +32,7 @@ export function DropdownMajor({ className, ...props }: DropdownMajorProps) {
   const searchParams = useSearchParams();
   const faculty = searchParams.get("faculty");
   const major = searchParams.get("major");
-  const selected = major || "Jurusan";
+  const selected = major ?? "Jurusan";
 
   // If no faculty selected, return empty
   if (!faculty) return <></>;
@@ -40,7 +40,7 @@ export function DropdownMajor({ className, ...props }: DropdownMajorProps) {
   // Options
   const options = [
     "Semua",
-    ...(facultiesMajorsMap[faculty as FacultiesType] || []),
+    ...(facultiesMajorsMap[faculty as FacultiesType] ?? []),
   ] as const;
 
   // On select

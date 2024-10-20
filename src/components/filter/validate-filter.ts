@@ -1,6 +1,6 @@
 // Description: This file contains the function that validates the filter query parameters.
-import { faculties, facultiesMajorsMap } from "~/lib/faculty-major";
-import { FacultiesType } from "~/types/faculty-major";
+import {faculties, facultiesMajorsMap} from "~/lib/faculty-major";
+import {FacultiesType} from "~/types/faculty-major";
 
 // Validate page
 export const isPageValid = (
@@ -37,7 +37,7 @@ export const isFacultyValid = (faculty: string | null): boolean => {
   if (!faculty) return false;
 
   // Check if faculty is in the list
-  if (!faculties.includes(faculty as any)) return false;
+  if (!faculties.includes(faculty as "FITB" | "FMIPA" | "FSRD" | "FTI" | "FTMD" | "FTTM" | "FTSL" | "SAPPK" | "SBM" | "SF" | "SITH" | "STEI")) return false;
 
   return true;
 };
@@ -63,5 +63,5 @@ export const isMajorValid = (
   }
 
   return true;
- 
+
 };

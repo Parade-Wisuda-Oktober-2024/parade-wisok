@@ -33,7 +33,7 @@ export function DropdownFaculty({ className, ...props }: DropdownFacultyProps) {
   // Get faculty from search params
   const searchParams = useSearchParams();
   const faculty = searchParams.get("faculty");
-  const selected = faculty || "Fakultas";
+  const selected = faculty ?? "Fakultas";
 
   // On select
   const onSelect = (faculty: (typeof options)[number]) => {
@@ -78,7 +78,7 @@ export function DropdownFaculty({ className, ...props }: DropdownFacultyProps) {
         side="bottom"
         sideOffset={-4}
         avoidCollisions={false}
-        className="z-[60] w-[var(--radix-dropdown-menu-trigger-width)] rounded-none rounded-b-xl border-4 border-t-4 border-[#F4D38E] bg-[#401571] font-paragraph font-semibold text-[#F4D38E]"
+        className="z-[60] w-[var(--radix-dropdown-menu-trigger-width)] rounded-none rounded-b-xl border-2 border-t-2 border-[#F4D38E] bg-[#401571] font-paragraph font-semibold text-[#F4D38E]"
       >
         {options.map((option) => (
           <DropdownMenuItem key={option} onClick={() => onSelect(option)}>

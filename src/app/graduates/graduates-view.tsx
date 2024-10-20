@@ -4,13 +4,13 @@ import {
   isFacultyValid,
   isMajorValid,
   isPageValid,
-} from "../../components/filter/validate-filter";
+} from "~/components/filter/validate-filter";
 import { GraduateCard } from "./graduates-card";
 import { ClientPagination } from "~/components/filter/client-pagination";
 import { DropdownFaculty } from "~/components/filter/dropdown-faculty";
 import { DropdownMajor } from "~/components/filter/dropdown-major";
 import { SearchInput } from "~/components/filter/search";
-import { UserPublic, users} from "~/types/user";
+import type { UserPublic } from "~/types/user";
 import { useRouter, useSearchParams } from "next/navigation";
 import * as React from "react";
 

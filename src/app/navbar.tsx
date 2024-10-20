@@ -34,16 +34,19 @@ const NavBar = () => {
   const pathname = usePathname()
   // DUMMY STATE BUAT HOLD STATE ADA ATAU TIDAKNYA SESSION
   // ELEMENT YANG DIRENDER BASED ON STATE SESSION: PROFIL dan TOMBOL LOGIN, both di navbar dan slidebar
-  const [session, setSession] = useState(true)
+  const [session, setSession] = useState(false)
 
   const taFair = pathname == "/ta-fair"
   const graduates = pathname == "/graduates"
   const merchandise = pathname == "/merchandise"
   const sponshorship = pathname == "/sponsorship"
   const aboutUs = pathname == "/about-us"
+  const woa = pathname == "/woa"
+
+  const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <div className="h-[73px] xl:h-[83px] w-full fixed top-0 z-50">
+    <div className="h-[73px] xl:h-[83px] w-full fixed top-0 z-50 font-header">
       <div className="flex items-center absolute h-full w-full overflow-hidden">
         <Image src={navPrimary} alt="navigation-1" objectFit="cover" fill/>
       </div>
@@ -63,53 +66,59 @@ const NavBar = () => {
             </div>
           </div>
         </Link>
-        <Sheet>
+        <Sheet open={isOpen} onOpenChange={setIsOpen}>
           <SheetTrigger className="z-10">
             {/* eslint-disable-next-line @typescript-eslint/no-unsafe-assignment */}
             <div className="w-[23.9px] h-[18.59px] md:hidden"><Image src={burger} alt="dropdown" objectFit="contain"/>
             </div>
           </SheetTrigger>
-          <SheetContent className="px-[25px] pt-[60px] pb-[30px] text-[28px] text-[#FEE59A] font-header">
+          <SheetContent className="px-[25px] pt-[60px] pb-[30px] text-xl text-[#FEE59A] font-header">
             <div className="flex flex-col justify-between h-full text-center">
               <div className="flex flex-col gap-[16px]">
-                <Link href="/ta-fair">
+                <Link onClick={() => setIsOpen(false)} href="/ta-fair">
                   <div className={`p-[10px] ${!taFair ? 'hover:bg-[#FF8CD926]' : ''} rounded-lg transition-all`}>TA Fair
                     <div
-                      className={`h-1 bg-[#F9BE6B] rounded-lg transform origin-top transition-all ease-out duration-300 ${taFair ? '-scale-y-100 h-1 opacity-100' : 'scale-y-0 h-0 opacity-0'}`}></div>
+                      className={`h-0.5 bg-[#F9BE6B] rounded-lg translate-y-0.5 transform origin-top transition-all ease-out duration-300 ${taFair ? '-scale-y-100 h-0.5 opacity-100' : 'scale-y-0 h-0 opacity-0'}`}></div>
                   </div>
                 </Link>
-                <Link href="/graduates">
+                <Link onClick={() => setIsOpen(false)} href="/graduates">
                   <div
                     className={`p-[10px] ${!graduates ? 'hover:bg-[#FF8CD926]' : ''} rounded-lg transition-all`}>Graduates
                     <div
-                      className={`h-1 bg-[#F9BE6B] rounded-lg transform origin-top transition-all ease-out duration-300 ${graduates ? '-scale-y-100 h-1 opacity-100' : 'scale-y-0 h-0 opacity-0'}`}></div>
+                      className={`h-0.5 bg-[#F9BE6B] rounded-lg translate-y-0.5 transform origin-top transition-all ease-out duration-300 ${graduates ? '-scale-y-100 h-0.5 opacity-100' : 'scale-y-0 h-0 opacity-0'}`}></div>
                   </div>
-                </Link>
-                <Link href="/merchandise">
+                </Link><Link onClick={() => setIsOpen(false)} href="/woa">
+                <div
+                  className={`p-[10px] ${!woa ? 'hover:bg-[#FF8CD926]' : ''} rounded-lg transition-all`}>WoA
+                  <div
+                    className={`h-0.5 bg-[#F9BE6B] rounded-lg translate-y-0.5 transform origin-top transition-all ease-out duration-300 ${woa ? '-scale-y-100 h-0.5 opacity-100' : 'scale-y-0 h-0 opacity-0'}`}></div>
+                </div>
+              </Link>
+                <Link onClick={() => setIsOpen(false)} href="/merchandise">
                   <div
                     className={`p-[10px] ${!merchandise ? 'hover:bg-[#FF8CD926]' : ''} rounded-lg transition-all`}>Merchandise
                     <div
-                      className={`h-1 bg-[#F9BE6B] rounded-lg transform origin-top transition-all ease-out duration-300 ${merchandise ? '-scale-y-100 h-1 opacity-100' : 'scale-y-0 h-0 opacity-0'}`}></div>
+                      className={`h-0.5 bg-[#F9BE6B] rounded-lg translate-y-0.5 transform origin-top transition-all ease-out duration-300 ${merchandise ? '-scale-y-100 h-0.5 opacity-100' : 'scale-y-0 h-0 opacity-0'}`}></div>
                   </div>
                 </Link>
-                <Link href="/sponsorship">
+                <Link onClick={() => setIsOpen(false)} href="/sponsorship">
                   <div
                     className={`p-[10px] ${!sponshorship ? 'hover:bg-[#FF8CD926]' : ''} rounded-lg transition-all`}>Sponsorship
                     <div
-                      className={`h-1 bg-[#F9BE6B] rounded-lg transform origin-top transition-all ease-out duration-300 ${sponshorship ? '-scale-y-100 h-1 opacity-100' : 'scale-y-0 h-0 opacity-0'}`}></div>
+                      className={`h-0.5 bg-[#F9BE6B] rounded-lg translate-y-0.5 transform origin-top transition-all ease-out duration-300 ${sponshorship ? '-scale-y-100 h-0.5 opacity-100' : 'scale-y-0 h-0 opacity-0'}`}></div>
                   </div>
                 </Link>
-                <Link href="/about-us">
+                <Link onClick={() => setIsOpen(false)} href="/about-us">
                   <div className={`p-[10px] ${!aboutUs ? 'hover:bg-[#FF8CD926]' : ''} rounded-lg transition-all`}>About
                     us
                     <div
-                      className={`h-1 bg-[#F9BE6B] rounded-lg transform origin-top transition-all ease-out duration-300 ${aboutUs ? '-scale-y-100 h-1 opacity-100' : 'scale-y-0 h-0 opacity-0'}`}></div>
+                      className={`h-0.5 bg-[#F9BE6B] rounded-lg translate-y-0.5 transform origin-top transition-all ease-out duration-300 ${aboutUs ? '-scale-y-100 h-0.5 opacity-100' : 'scale-y-0 h-0 opacity-0'}`}></div>
                   </div>
                 </Link>
               </div>
               <div className="flex flex-col gap-[16px]">
                 {!session &&
-                    <Link href="/login">
+                    <Link href="/login" onClick={() => setIsOpen(false)}>
                         <div className="py-[12px] px-[32px] bg-[#210B3A] rounded-lg border-none font-bold">
                             Login
                         </div>
@@ -147,7 +156,12 @@ const NavBar = () => {
               <div
                 className={`h-1 bg-[#F9BE6B] rounded-lg transform origin-top transition-all ease-out duration-300 ${graduates ? '-scale-y-100 h-1 opacity-100' : 'scale-y-0 h-0 opacity-0'}`}></div>
             </div>
-          </Link>
+          </Link><Link href="/woa">
+          <div className={`p-[10px] ${!woa ? 'hover:bg-[#FF8CD926]' : ''} rounded-lg transition-all`}>WoA
+            <div
+              className={`h-1 bg-[#F9BE6B] rounded-lg transform origin-top transition-all ease-out duration-300 ${woa ? '-scale-y-100 h-1 opacity-100' : 'scale-y-0 h-0 opacity-0'}`}></div>
+          </div>
+        </Link>
           <Link href="/merchandise">
             <div
               className={`p-[10px] ${!merchandise ? 'hover:bg-[#FF8CD926]' : ''} rounded-lg transition-all`}>Merchandise
