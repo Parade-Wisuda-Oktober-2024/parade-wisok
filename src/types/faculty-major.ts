@@ -1,4 +1,4 @@
-import { faculties, majors } from "~/lib/faculty-major";
+import type { faculties, majors } from "~/lib/faculty-major";
 
 export type FacultiesType = (typeof faculties)[number];
 

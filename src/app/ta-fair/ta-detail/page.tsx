@@ -1,15 +1,10 @@
-
-import NavBar from "~/components/header-footer/header";
-import Footer from "~/components/header-footer/footer";
-import Title from "~/components/title";
-import { TADetailLayout } from "../layout";
+import { TADetailLayout } from "../wrapper";
 import Image from "next/image";
 
 
 const Page = () => {
     return (
     <main>
-        <NavBar/>
         <div className="relative inset-0 bg-[url('/tafair.png')] z-0 bg-cover bg-center bg-no-repeat min-h-screen size-110%">
 
             <div className="relative flex flex-col flex-1 items-center justify-center p-5"> {/* container */}
@@ -49,7 +44,6 @@ const Page = () => {
   
             </div>
         </div>
-        <Footer/>
     </main>
     );
   };

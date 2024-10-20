@@ -23,29 +23,22 @@ export default function Profile() {
           className="max-w-full overflow-hidden"
         />
       </div>
-      
       <div className="flex flex-col items-center z-10 mt-52 gap-5 mb-28">
         <Title>HAI PENAKLUK</Title>
         <Title>ITB</Title>
       </div>
-      
       <ProfileCard/>
-      
       <div className="flex flex-col items-center z-10 mt-14 gap-5 mb-14 ">
         <Title>YOUR</Title>
         <Title>ACHIEVEMENT</Title>
       </div>
-
       {/* COMPONENT TA FAIR */}
       <ProfileCard/>
-
       <div className="flex flex-col items-center z-10 mt-16 gap-5 mb-14 ">
         <Title>Pesan</Title>
       </div>
-
       {/* COMPONENT WOA + ARROW ICON */}
       <ProfileCard/>
-
     </section>
   );
 }
