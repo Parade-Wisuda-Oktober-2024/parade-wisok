@@ -26,6 +26,7 @@ const SearchInput = ({ ...props }) => {
 
     // Set search param
     if (value) {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
       newSearchParams.set("search", value);
     } else {
       newSearchParams.delete("search");
@@ -37,11 +38,11 @@ const SearchInput = ({ ...props }) => {
 
   return (
     <div
-      className="flex h-12 flex-row flex-grow rounded-xl border-4 border-[#F4D38E] bg-[#401571] font-paragraph text-base font-semibold text-[#F4D38E]"
+      className="flex h-12 flex-row flex-grow rounded-xl min-w-0 border-2 border-[#F4D38E] bg-[#401571] font-paragraph text-base font-semibold text-[#F4D38E]"
       {...props}
     >
       <input
-        className="font-paragraph ml-4 mr-2 flex-grow bg-transparent placeholder-[#F4D38E] outline-none"
+        className="font-paragraph ml-4 mr-2 flex-grow bg-transparent placeholder-[#F4D38E] outline-none min-w-0"
         placeholder="Cari wisudawan"
         defaultValue={search ?? ""}
         onChange={(v) => debounced(v.target.value)}

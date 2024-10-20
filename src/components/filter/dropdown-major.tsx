@@ -67,7 +67,7 @@ export function DropdownMajor({ className, ...props }: DropdownMajorProps) {
       <DropdownMenuTrigger className="outline-none" {...props}>
         <div
           className={cn(
-            "flex h-12 w-40 select-none flex-row items-center justify-center gap-2 overflow-hidden rounded-t-xl border-4 border-[#F4D38E] bg-[#401571] p-1 font-paragraph text-base font-semibold leading-none text-[#F4D38E] transition-all",
+            "flex h-12 w-40 select-none flex-row items-center justify-center gap-2 overflow-hidden rounded-t-xl border-2 border-[#F4D38E] bg-[#401571] p-1 font-paragraph text-base font-semibold leading-none text-[#F4D38E] transition-all",
             open ? undefined : "rounded-b-xl",
             className
           )}

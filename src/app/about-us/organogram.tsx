@@ -27,7 +27,7 @@ const Organogram = () => {
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center bg-[url('/organogram/ono-bg.png')] bg-cover bg-center p-4">
+    <div className="flex flex-col items-center justify-center p-4">
       <div className="relative flex items-center justify-center mb-8 sm:mb-12" data-aos="fade-up" data-aos-delay="200">
         {/* Title background */}
         <div className="relative h-[100px] w-[250px] sm:h-[135px] sm:w-[330px] lg:h-[300px] lg:w-[765px]">

@@ -27,9 +27,7 @@ export function OrganogramCarousel({ cardsData }: CarouselSpacingProps) {
     if (!api) {
       return;
     }
-
     setCurrent(api.selectedScrollSnap());
-
     api.on("select", () => {
       setCurrent(api.selectedScrollSnap());
     });

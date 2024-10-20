@@ -78,7 +78,6 @@ export function GraduateView({ graduates }: GraduateViewProps) {
       <div className="z-10 flex flex-row justify-between gap-4 lg:gap-6">
         {/* Search Input */}
         <SearchInput data-aos="fade-up" data-aos-delay="150" />
-
         {/* Dropdowns */}
         <div className="flex flex-col flex-wrap gap-4 sm:flex-row lg:gap-6">
           {/* Faculty */}
@@ -87,7 +86,6 @@ export function GraduateView({ graduates }: GraduateViewProps) {
             data-aos-delay="150"
             className="w-full sm:w-40"
           />
-
           {/* Major */}
           <DropdownMajor
             data-aos="fade-up"
@@ -96,7 +94,6 @@ export function GraduateView({ graduates }: GraduateViewProps) {
           />
         </div>
       </div>
-
       {/* Cards Grid */}
       {filteredGraduates.length === 0 ? (
         <div className="animate-in-fadetop-8 flex h-52 flex-col items-center justify-center gap-2 text-center text-[#F4D38E] lg:gap-4">

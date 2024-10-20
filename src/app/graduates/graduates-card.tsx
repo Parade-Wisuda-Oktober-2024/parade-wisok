@@ -38,7 +38,7 @@ export function GraduateCard({
         {/* Card */}
         <button
           {...props}
-          className="relative flex aspect-[3/4] h-full w-full overflow-hidden px-4 pb-4 pt-10 "
+          className="relative flex aspect-[3/4] gap-4 md:gap-6 h-full w-full overflow-hidden px-4 pb-4 pt-10 "
         >
           {/* Avatar */}
           <div className="absolute inset-0 z-30 flex pb-11 pt-8 justify-center">
@@ -74,7 +74,7 @@ export function GraduateCard({
             priority={isPriority}
             sizes="(max-width: 640px) 320px, (max-width: 1024px) 270px, 310px"
           />
-          <div className="relative top-[60%] z-20 flex max-h-32 w-full flex-col items-center font-paragraph text-[#F4D38E]">
+          <div className="relative top-[65%] z-20 flex max-h-32 w-full flex-col items-center font-paragraph text-[#F4D38E]">
             <p className="text-lg font-bold lg:text-xl">{graduate.name}</p>
             <p className="text-base font-medium lg:text-lg">{graduate.major}</p>
           </div>
