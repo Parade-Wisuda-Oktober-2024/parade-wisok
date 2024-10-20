@@ -9,7 +9,7 @@ export default function ProfileCard() {
 
   return (
     <section
-      className="w-full py-16 flex flex-col items-center max-w-[300px] md:max-w-[700px] lg:max-w-[900px] xl:max-w-[1100px] m-auto rounded-xl shadow-md z-10"
+      className="w-full py-16 flex flex-col items-center md:max-w-[700px] md:w-3/4 lg:max-w-[900px] xl:max-w-[1100px] rounded-xl shadow-md z-10"
       style={{
         backgroundImage: `url(${BackgroundProfileCard.src})`,
         backgroundPosition: "center",
@@ -18,18 +18,18 @@ export default function ProfileCard() {
       }}
     >
       <div className="m-auto px-6 md:px-20 w-full bg-transparent rounded-md">
-        <h2 className="font-header text-5xl md:text-7xl font-bold mb-4">Nama</h2>
+        <h2 className="font-header text-3xl md:text-5xl font-bold mb-4">Nama</h2>
         <p className="font-header font-semibold text-xl md:text-2xl mb-6">Muhammad Fadhlan Armen</p>
 
-        <h2 className="font-header text-5xl md:text-7xl font-bold mb-4">NIM</h2>
+        <h2 className="font-header text-3xl md:text-5xl font-bold mb-4">NIM</h2>
         <p className="font-header font-semibold text-xl md:text-2xl mb-6">18223115</p>
 
-        <h2 className="font-header text-5xl md:text-7xl font-bold mb-4">Jurusan</h2>
+        <h2 className="font-header text-3xl md:text-5xl font-bold mb-4">Jurusan</h2>
         <p className="font-header font-semibold text-xl md:text-2xl mb-6">Sistem Teknologi Informasi</p>
 
         <div className="flex flex-col">
           <div className="flex flex-row">
-            <h2 className="font-header text-5xl md:text-7xl font-bold mb-4">Password</h2>
+            <h2 className="font-header text-3xl md:text-5xl font-bold mb-4">Password</h2>
             <Image 
               src="/profile/pencil.svg"
               alt="Pencil"
@@ -38,7 +38,6 @@ export default function ProfileCard() {
               className="md:ml-10" 
             />
           </div>
-
           <div className='relative bg-[#401571AD] bg-opacity-60 max-w-full md:max-w-[800px] rounded-xl flex items-center shadow-none'>
             <input
               type="password"
@@ -47,7 +46,6 @@ export default function ProfileCard() {
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Password"
             />
-
             <div className="absolute right-2 flex items-center space-x-2 md:space-x-4">
               <Image 
                 src='/profile/close.svg' 

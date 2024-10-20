@@ -55,7 +55,7 @@ const MenfessForm = ({targetUserId, onFinishSubmit}: MenfessFormProps) => {
 
   return (
     <Form {...form}>
-      <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col  gap-4">
+      <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col text-base md:text-lg lg:text-xl gap-4">
         <div className="flex flex-col gap-2">
           {/* From (sender) */}
           <FormField
@@ -64,7 +64,7 @@ const MenfessForm = ({targetUserId, onFinishSubmit}: MenfessFormProps) => {
             name="sender"
             render={({field: {value, onChange}, ...field}) => (
               <FormItem>
-                <FormLabel className="font-paragraph font-semibold text-[#FEE59A]">
+                <FormLabel className="font-paragraph text-base md:text-lg font-semibold text-[#FEE59A]">
                   Nama/Anon
                 </FormLabel>
                 <FormControl>
@@ -72,7 +72,7 @@ const MenfessForm = ({targetUserId, onFinishSubmit}: MenfessFormProps) => {
                     type="text"
                     value={value ?? ""}
                     onChange={(e) => onChange(e.target.value)}
-                    className=" bg-[#401571AD] font-paragraph text-[#FEE59A] h-12 border-0 file:text-[#FEE59A] placeholder:text-[#FEE59A] focus-visible:ring-[#FEE59A] "
+                    className=" bg-[#401571]/85 font-paragraph text-[#FEE59A] h-12 border-0 file:text-[#FEE59A] placeholder:text-[#FEE59A] focus-visible:ring-[#FEE59A] "
                     placeholder="Nama (optional)"
                     {...field}
                   />
@@ -89,12 +89,12 @@ const MenfessForm = ({targetUserId, onFinishSubmit}: MenfessFormProps) => {
             name="message"
             render={({field}) => (
               <FormItem>
-                <FormLabel className="font-paragraph font-semibold text-[#FEE59A]">
+                <FormLabel className="font-paragraph text-base md:text-lg font-semibold text-[#FEE59A]">
                   Pesan
                 </FormLabel>
                 <FormControl>
                   <Textarea
-                    className=" bg-[#401571AD] font-paragraph text-[#FEE59A] border-0 h-44 file:text-[#FEE59A] placeholder:text-[#FEE59A] focus-visible:ring-[#FEE59A]"
+                    className=" bg-[#401571]/85 font-paragraph text-[#FEE59A] border-0 h-40 file:text-[#FEE59A] placeholder:text-[#FEE59A] focus-visible:ring-[#FEE59A]"
                     placeholder="Tuliskan sebuah pesan yang berharga"
                     {...field}
                   />

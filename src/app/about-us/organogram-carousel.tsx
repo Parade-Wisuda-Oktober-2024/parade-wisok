@@ -8,8 +8,8 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "../../components/ui/carousel";
-import { type CarouselApi } from "../../components/ui/carousel";
+} from "~/components/ui/carousel";
+import { type CarouselApi } from "~/components/ui/carousel";
 import type { OrganogramData } from "~/types/organogram";
 import OnoHeader from "~/components/onoheader";
 
@@ -97,7 +97,6 @@ export function OrganogramCarousel({ cardsData }: CarouselSpacingProps) {
             </CarouselItem>
           ))}
         </CarouselContent>
-
         <CarouselPrevious
           onClick={scrollPrev}
           className={`absolute left-1 top-36 z-10 size-11 rounded-full bg-contain bg-center sm:-left-14 lg:-left-14 lg:top-48 lg:size-14 ${isPrevHidden ? "opacity-50" : ""}`}

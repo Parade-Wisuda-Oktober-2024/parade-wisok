@@ -1,15 +1,19 @@
+import {cn} from "~/lib/utils";
+import {className} from "postcss-selector-parser";
+
 interface WoaCardProps {
   from?: string;
   to: string;
   toFaculty: string;
   toNIM: string;
   message: string;
+  className?: string;
 }
 
-export function WoaCard({from, to, toFaculty, toNIM, message}: WoaCardProps) {
+export function WoaCard({from, to, toFaculty, toNIM, message, className}: WoaCardProps) {
   return (
     <div
-      className="bg-[url('/organogram/borderlight.png')] border border-purple-500 bg-cover bg-center object-center rounded-[20px] w-full md:w-3/4 lg:w-full h-96 p-1">
+      className={cn("bg-[url('/organogram/borderlight.png')] border border-purple-500 bg-cover bg-center object-center rounded-[20px] w-full md:w-3/4 lg:w-full h-96 p-1", className)}>
       <div
         className="relative overflow-hidden bg-[url('/organogram/ono-bg.png')] p-6 md:p-8 flex items-center flex-col justify-between bg-cover bg-center object-center rounded-[16px] w-full h-full">
         <div className='absolute w-full h-full bg-blue-950/20 top-0 z-0'>
