@@ -8,8 +8,9 @@ import {
 } from "~/components/ui/carousel";
 import Title from "~/components/Merch/MerchandiseTitle";
 import Image from "next/image";
-import { Fraunces } from "next/font/google";
 import { cardMerch } from "../../app/merchandise/datamerch";
+import {Fraunces} from "next/font/google";
+import SeparatorLanding from "~/components/separator-landing";
 
 // Fraunces Font
 const fraunces = Fraunces({
@@ -20,7 +21,7 @@ const fraunces = Fraunces({
 const MerchandisePage = () => {
   return (
     <div
-      className={`flex min-h-screen w-full flex-col items-center justify-center bg-[url(/merchandise/background-merch.png)] bg-cover bg-no-repeat p-8 ${fraunces.className}`}
+      className={`flex relative min-h-screen w-full flex-col items-center justify-center bg-[url(/merchandise/background-merch.png)] bg-cover bg-no-repeat p-8 ${fraunces.className} md:py-20`}
     >
       {/* Header */}
       <div className="relative flex flex-col items-center md:mb-10">
@@ -44,13 +45,11 @@ const MerchandisePage = () => {
             filter: "drop-shadow(0 0 20px rgba(255, 140, 217, 1))",
           }}
         />
-
         <div className="flex flex-col items-center">
           <Title>GET YOUR</Title>
           <Title>MERCHANDISE</Title>
         </div>
       </div>
-
       {/* Carousel */}
       <div className="relative flex w-full items-center justify-center">
         <Carousel className="w-full max-w-[250px] md:max-w-[416px]">
@@ -83,10 +82,14 @@ const MerchandisePage = () => {
           </CarouselContent>
 
           {/* Previous/Next Button */}
-          <CarouselPrevious className="absolute left-[-4rem] top-1/2 -translate-y-1/2 flex items-center justify-center md:left-[-8rem]" />
-          <CarouselNext className="absolute right-[-4rem] top-1/2 -translate-y-1/2 flex items-center justify-center md:right-[-8rem]" />
+          <CarouselPrevious
+            className="absolute left-[-4rem] top-[8rem] flex items-center justify-center md:left-[-8rem] md:top-[12rem]"></CarouselPrevious>
+
+          <CarouselNext
+            className="absolute right-[-4rem] top-[8rem] flex items-center justify-center md:right-[-8rem] md:top-[12rem]"></CarouselNext>
         </Carousel>
       </div>
+      <SeparatorLanding />
     </div>
   );
 };

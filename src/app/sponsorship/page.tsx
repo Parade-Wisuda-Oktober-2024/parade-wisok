@@ -32,28 +32,10 @@ import { motion } from 'framer-motion';
 import React from 'react';
 
 const Sponsors: React.FC = () => {
-  const container = {
-    hidden: { opacity: 1, scale: 0 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        delayChildren: 0.3,
-        staggerChildren: 0.2
-      }
-    }
-  };
-  
-  const item = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1
-    }
-  };
+
   return (
     <section
-      className="flex w-full flex-col items-center py-16"
+      className="flex w-full flex-col items-center py-16 pt-28 md:pt-36"
       style={{
         backgroundImage: `url(${BackgroundImage.src})`,
         backgroundPosition: "center",
@@ -61,23 +43,8 @@ const Sponsors: React.FC = () => {
         backgroundRepeat: "no-repeat",
       }}
     >
-      <Title className="mb-5">Sponsorship</Title>
-      <motion.div
-        className="container"
-        variants={container}
-        initial="hidden"
-        animate="visible"
-      >
-        <div className="grid-col-1 md:grid-col-2 lg:grid-col-3 m-auto mb-10 mt-10 grid w-full max-w-7xl">
-          <div className="flex flex-wrap justify-center">
-          {[bca, esize, frestea, mahakaX, propan].map((sponsorImgUrl, index) => (
-              <motion.div key={index} variants={item}>
-                <SponsorCard sponsorImgUrl={sponsorImgUrl} />
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </motion.div>
+      <Title className="mb-5">Sponsors</Title>
+      <Sponsor />
       <Title className="mb-5">Media Partner</Title>
       <InfiniteCarousel direction="left">
         <SponsorCard sponsorImgUrl={radio8eh} />
@@ -166,5 +133,43 @@ const Sponsors: React.FC = () => {
     </section>
   );
 };
+
+export function Sponsor() {
+  const container = {
+    hidden: { opacity: 1, scale: 0 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        delayChildren: 0.3,
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const item = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1
+    }
+  };
+  return <motion.div
+    className="container"
+    variants={container}
+    initial="hidden"
+    animate="visible"
+  >
+    <div className="grid-col-1 md:grid-col-2 lg:grid-col-3 m-auto mb-10 grid w-full max-w-7xl">
+      <div className="flex flex-wrap justify-center">
+        {[bca, esize, frestea, mahakaX, propan].map((sponsorImgUrl, index) => (
+          <motion.div key={index} variants={item}>
+            <SponsorCard sponsorImgUrl={sponsorImgUrl}/>
+          </motion.div>
+        ))}
+      </div>
+    </div>
+  </motion.div>
+}
 
 export default Sponsors;
