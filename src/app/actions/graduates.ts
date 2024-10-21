@@ -1,7 +1,7 @@
 "use server";
 
 import { z } from "zod";
-import { actionClient } from "../safe-action";
+import { actionClient } from "../../lib/safe-action";
 import { prisma } from "~/server/db";
 
 // This schema is used to validate input from client.
@@ -13,6 +13,35 @@ const schema = z.object({
   }),
   page: z.number().min(1).default(1),
 });
+
+
+export const getAllGraduatesNoPagination = actionClient.schema(schema).action(
+  async ({
+    parsedInput: {
+      profile: { name, faculty, major },
+      // page,
+    },
+  }) => {
+    // const limit = 6;
+    // const offset = (page - 1) * limit;
+
+    const data = await prisma.user.findMany({
+      where: {
+        profile: {
+          name: { contains: name },
+          faculty: { contains: faculty },
+          major: { contains: major },
+        },
+      },
+      // skip: offset,
+      // take: limit,
+    });
+
+    // get all with pagination
+    return data;
+  },
+);
+
 
 export const getAllGraduates = actionClient.schema(schema).action(
   async ({
