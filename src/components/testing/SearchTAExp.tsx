@@ -1,27 +1,28 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useAction } from "next-safe-action/hooks";
-import { searchTA } from "~/app/actions/search-TA";
+import { searchAllTA, searchTA } from "~/app/actions/search-TA";
 
 const SearchTAExp = () => {
-  const { execute, result } = useAction(searchTA);
-  const [page, setPage] = useState(1);
+  // const [page, setPage] = useState(1);
+  const { execute, result } = useAction(searchAllTA);
   const [name, setName] = useState<string>("");
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const input = e.target.value;
     setName(input);
-
-    execute({ nameOrTitle: input, faculty: "", major: "", page: page });
   };
 
-  const buttonOnClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    const value = Number(e.currentTarget.value);
-    setPage(value);
+  // const buttonOnClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+  //   const value = Number(e.currentTarget.value);
+  //   setPage(value);
+  // };
 
-    execute({ nameOrTitle: name, faculty: "", major: "", page: value });
-  };
+  useEffect(()=>{
+    execute({ nameOrTitle: name, faculty: "", major: "" });
+  },[name]
+  )
 
   return (
     <div className="m-5">
@@ -50,14 +51,14 @@ const SearchTAExp = () => {
             placeholder="Search name / title"
           />
         </div>
-        <div className="my-3 flex gap-5">
+        {/* <div className="my-3 flex gap-5">
           <button onClick={buttonOnClick} value={1}>
             1
           </button>
           <button onClick={buttonOnClick} value={2}>
             2
           </button>
-        </div>
+        </div> */}
       </div>
     </div>
   );
