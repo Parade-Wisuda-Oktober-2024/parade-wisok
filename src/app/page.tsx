@@ -1,26 +1,38 @@
 import Title from "~/components/title";
-import Image from "next/image";
+import FAQ from "~/components/FAQ/FAQpage";
+import WelcomePage from "~/components/welcome/WelcomePage";
+import Details from "~/components/welcome/WelcomeDetails";
+import MerchandisePage from "~/components/Merch/Merchandise";
+import {Sponsor} from "~/app/sponsorship/page";
+import SeparatorLanding from "~/components/separator-landing";
 
 export default function HomePage() {
-
   return (
-    <main
-      className={`flex flex-col relative justify-end min-h-dvh max-h-dvh overflow-hidden font-header bg-gradient-to-bl from-[#320166] to-[#42076a]`}>
-      <div className="flex flex-col items-center flex-1 h-full justify-center">
-        <Title>
-          PARADE
-        </Title>
-        <Title>
-          WISUDA OKTOBER
-        </Title>
-        <Title>
-          2024
-        </Title>
+    <main className="relative flex flex-col justify-end overflow-hidden font-header">
+      <div className="fixed inset-0 bg-[url('/Welcome.png')] bg-center bg-containbg-no-repeat z-[-1] bg-cover"></div>
+      <WelcomePage/>
+      <Details/>
+      <MerchandisePage/>
+      {/*<div className="flex flex-1 items-center justify-center">*/}
+      {/*  <Timeline></Timeline>*/}
+      {/*</div>*/}
+      <div className="flex flex-1 relative items-center flex-col gap-10 md:gap-20 min-h-screen justify-center">
+        <Title>SPONSORS</Title>
+        <Sponsor />
+        <SeparatorLanding />
       </div>
-      <Image src={'/v-1.png'} alt={'v-1'} width={1000} height={1000} className='md:h-[45%] md:min-w-[auto] min-w-[150vw] relative left-1/2 -translate-x-1/2 md:min-w-auto'/>
-      <Image src={'/v-14.png'} alt={'v-1'} width={1000} height={1000} className='min-w-[140%] md:min-w-full h-[33%] md:h-auto bottom-0 absolute'/>
-      <Image src={'/v-16.png'} alt={'v-1'} width={1000} height={1000}
-             className='md:min-w-full min-w-[200vw] bottom-0 translate-y-1/2 absolute'/>
+      <div className="flex flex-1 items-center justify-center relative flex-col min-h-screen">
+        <Title className="mb-10">FAQ</Title>
+        <br></br>
+        <FAQ></FAQ>
+        {/*<Image*/}
+        {/*  src={"/VIS-18.png"}*/}
+        {/*  alt={"VIS-18"}*/}
+        {/*  width={1000}*/}
+        {/*  height={1000}*/}
+        {/*  className="absolute bottom-0 z-0 md:min-w-full"*/}
+        {/*/>*/}
+      </div>
     </main>
   );
 }
