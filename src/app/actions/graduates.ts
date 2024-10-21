@@ -14,8 +14,15 @@ const schema = z.object({
   page: z.number().min(1).default(1),
 });
 
+const schemaNoPagination = z.object({
+  profile: z.object({
+    name: z.string().min(0).max(500),
+    faculty: z.string().min(0).max(500),
+    major: z.string().min(0).max(500),
+  }),
+});
 
-export const getAllGraduatesNoPagination = actionClient.schema(schema).action(
+export const getAllGraduatesNoPagination = actionClient.schema(schemaNoPagination).action(
   async ({
     parsedInput: {
       profile: { name, faculty, major },
@@ -37,7 +44,6 @@ export const getAllGraduatesNoPagination = actionClient.schema(schema).action(
       // take: limit,
     });
 
-    // get all with pagination
     return data;
   },
 );
