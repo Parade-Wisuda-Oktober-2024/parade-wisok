@@ -2,7 +2,7 @@
 
 import { z } from "zod";
 import { actionClient } from "~/lib/safe-action";
-import { prisma } from "../../server/db";
+import { prisma } from "~/server/db";
 
 export const searchAllTA = actionClient
   .schema(

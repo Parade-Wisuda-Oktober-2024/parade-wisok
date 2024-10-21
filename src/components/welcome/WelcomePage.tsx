@@ -29,6 +29,7 @@ const WelcomePage: React.FC = () => {
           src="/LOGOTYPE 1.svg"
           alt="Parade Wisuda Oktober 2024"
           className="p-0 mx-auto w-[70%] max-w-[500px]"
+          data-aos="fade-up" data-aos-delay="150"
         />
       </div>
       <img

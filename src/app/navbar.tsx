@@ -22,19 +22,13 @@ import {
   MenubarTrigger,
 } from "~/components/ui/menubar"
 import foot from "../../public/footer-bg.png"
+import type {Session} from "@auth/core/types";
+import {signOut} from "next-auth/react";
 
-const NavBar = () => {
-  // const [session, setSession] = useState<Session | null>(null);
-
-  // useEffect(() => {
-  //   // Assuming the session is globally available, for example, window.session
-  //   const globalSession = window.session; // Replace with the actual global session variable
-  //   setSession(globalSession);
-  // }, []); // This only runs once when the component mounts
+const NavBar = ({session}: { session: Session | null }) => {
   const pathname = usePathname()
   // DUMMY STATE BUAT HOLD STATE ADA ATAU TIDAKNYA SESSION
   // ELEMENT YANG DIRENDER BASED ON STATE SESSION: PROFIL dan TOMBOL LOGIN, both di navbar dan slidebar
-  const [session, setSession] = useState(false)
 
   const taFair = pathname == "/ta-fair"
   const graduates = pathname == "/graduates"
@@ -110,7 +104,7 @@ const NavBar = () => {
                 </Link>
                 <Link onClick={() => setIsOpen(false)} href="/about-us">
                   <div className={`p-[10px] ${!aboutUs ? 'hover:bg-[#FF8CD926]' : ''} rounded-lg transition-all`}>About
-                    us
+                    Us
                     <div
                       className={`h-0.5 bg-[#F9BE6B] rounded-lg translate-y-0.5 transform origin-top transition-all ease-out duration-300 ${aboutUs ? '-scale-y-100 h-0.5 opacity-100' : 'scale-y-0 h-0 opacity-0'}`}></div>
                   </div>
@@ -124,18 +118,18 @@ const NavBar = () => {
                         </div>
                     </Link>
                 }
-                {session &&
+                {!!session &&
                     <>
                         <Link href="/profile">
                             <div className="py-[12px] px-[32px] bg-[#210B3A] rounded-lg border-none font-bold">
                                 Profile
                             </div>
                         </Link>
-                        <Link href="/log-out">
+                        <button onClick={() => signOut()}>
                             <div className="py-[12px] px-[32px] bg-[#210B3A] rounded-lg border-none font-bold">
                                 Log Out
                             </div>
-                        </Link>
+                        </button>
                     </>
                 }
               </div>
@@ -177,7 +171,7 @@ const NavBar = () => {
             </div>
           </Link>
           <Link href="/about-us">
-            <div className={`p-[10px] ${!aboutUs ? 'hover:bg-[#FF8CD926]' : ''} rounded-lg transition-all`}>About us
+            <div className={`p-[10px] ${!aboutUs ? 'hover:bg-[#FF8CD926]' : ''} rounded-lg transition-all`}>About Us
               <div
                 className={`h-1 bg-[#F9BE6B] rounded-lg transform origin-top transition-all ease-out duration-300 ${aboutUs ? '-scale-y-100 h-1 opacity-100' : 'scale-y-0 h-0 opacity-0'}`}></div>
             </div>
@@ -190,7 +184,7 @@ const NavBar = () => {
                     </div>
                 </Link>
             }
-            {session &&
+            {!!session &&
                 <Menubar>
                     <MenubarMenu>
                         <MenubarTrigger>
@@ -221,7 +215,7 @@ const NavBar = () => {
                                         </div>
                                     </MenubarItem>
                                 </Link>
-                                <Link href="/log-out">
+                                <button onClick={() => signOut()}>
                                     <MenubarItem
                                         className="z-10 text-[28px] w-[300px] cursor-pointer flex justify-center">
                                         <div
@@ -229,7 +223,7 @@ const NavBar = () => {
                                             Log Out
                                         </div>
                                     </MenubarItem>
-                                </Link>
+                                </button>
                                 <div className="absolute inset-0 h-full w-full">
                                     <Image
                                         src={foot}

@@ -1,4 +1,5 @@
 import { PrismaClient, UserRole } from "@prisma/client";
+import {hash} from "bcrypt";
 
 const prisma = new PrismaClient();
 
@@ -13,7 +14,7 @@ async function main() {
     const user = await prisma.user.create({
       data: {
         nim: `13523${i}`,
-        passwordHash: `hashedpassword${i}`,
+        passwordHash: await hash(`hashedpassword${i}`, 10),
         role: UserRole.USER,
         profile: {
           create: {
@@ -42,7 +43,7 @@ async function main() {
     const user = await prisma.user.create({
       data: {
         nim: `16523${i}`,
-        passwordHash: `hashedpassword${i}`,
+        passwordHash: await hash(`hashedpassword${i}`, 10),
         role: UserRole.USER,
         profile: {
           create: {
