@@ -31,7 +31,6 @@ export const getAllGraduatesNoPagination = actionClient.schema(schemaNoPaginatio
   }) => {
     // const limit = 6;
     // const offset = (page - 1) * limit;
-    // console.log(major)
 
     const data = await prisma.user.findMany({
       where: {
@@ -59,7 +58,6 @@ export const getAllGraduates = actionClient.schema(schema).action(
   }) => {
     const limit = 6;
     const offset = (page - 1) * limit;
-    console.log(major)
 
     const data = await prisma.user.findMany({
       where: {
