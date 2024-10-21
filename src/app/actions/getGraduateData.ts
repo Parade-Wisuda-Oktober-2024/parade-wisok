@@ -1,7 +1,7 @@
 "use server";
 
 import { z } from "zod";
-import { actionClient } from "../safe-action";
+import { actionClient } from "../../lib/safe-action";
 import { prisma } from "~/server/db";
 
 const schema = z.object({
