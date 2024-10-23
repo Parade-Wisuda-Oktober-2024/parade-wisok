@@ -74,7 +74,6 @@ async function main() {
       }
     })
   })
-
 }
 
 main()
