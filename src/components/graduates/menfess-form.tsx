@@ -1,14 +1,7 @@
 "use client";
 
 import {Button} from "~/components/ui/button";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "~/components/ui/form";
+import {Form, FormControl, FormField, FormItem, FormLabel, FormMessage,} from "~/components/ui/form";
 import {Input} from "~/components/ui/input";
 import {zodResolver} from "@hookform/resolvers/zod";
 import {Loader2} from "lucide-react";
@@ -72,7 +65,7 @@ const MenfessForm = ({onFinishSubmit, setIsOpen}: MenfessFormProps) => {
     formState: {isSubmitting},
     setValue
   } = form;
-  const graduates = result.data?.map(({name, major, nim}) => ({name, major, NIM: nim}));
+  const graduates_ = result.data?.map(({name, major, nim}) => ({name, major, NIM: nim}));
   // Handle submit
   const onSubmit: SubmitHandler<z.infer<typeof menfessSchema>> = async (data, e) => {
     // Success response (simulating back-end behavior)
@@ -82,6 +75,12 @@ const MenfessForm = ({onFinishSubmit, setIsOpen}: MenfessFormProps) => {
     // Call onFinishSubmit callback
     onFinishSubmit?.();
   };
+  let graduatesName = graduates_?.map(({name}) => name);
+  graduatesName = [...new Set(graduatesName)];
+
+  const graduates = graduatesName.map((name) => {
+    return graduates_?.find(({name: n}) => n.toLocaleLowerCase() === name.toLocaleLowerCase());
+  })
 
   return (
     <Form {...form}>
@@ -101,21 +100,25 @@ const MenfessForm = ({onFinishSubmit, setIsOpen}: MenfessFormProps) => {
                 }}>
                 <div
                   className={`bg-[#421370]/90 overflow-y-scroll min-h-0 w-full transition-all duration-300 rounded-md ${isTyping && "first:mt-2 last:mb-2"} px-4 divide-amber-300 divide-y-2 `}>
-                  {graduates?.map(({name, major, NIM}, i) => (
-                    <div className="flex py-2 w-full text-[#F4D38E] justify-between" key={i + name + NIM}
-                         onClick={() => {
-                           setValue("targetName", name);
-                           setValue("targetNIM", NIM);
-                           setValue("targetMajor", major);
-                           setIsTyping(false);
-                         }}>
-                      <div className="">
-                        <h4 className='capitalize text-sm'>{name}</h4>
-                        <h4 className='capitalize text-sm'>{NIM}</h4>
+                  {graduates?.map((grad, i) => {
+                    if (!grad) return null;
+                    const {name, NIM, major} = grad;
+                    return (
+                      <div className="flex py-2 w-full text-[#F4D38E] justify-between" key={i + name + NIM}
+                           onClick={() => {
+                             setValue("targetName", name);
+                             setValue("targetNIM", NIM);
+                             setValue("targetMajor", major);
+                             setIsTyping(false);
+                           }}>
+                        <div className="">
+                          <h4 className='capitalize text-sm'>{name}</h4>
+                          <h4 className='capitalize text-sm'>{NIM}</h4>
+                        </div>
+                        <h4 className="capitalize text-sm">{major}</h4>
                       </div>
-                      <h4 className="capitalize text-sm">{major}</h4>
-                    </div>
-                  ))}
+                    )
+                  })}
                   {!graduates && <div className="flex justify-center text-[#F4D38E] mt-4">No result found</div>}
                 </div>
               </div>
