@@ -2,7 +2,7 @@
 
 import {Dialog, DialogContent, DialogTrigger} from "~/components/ui/dialog";
 import Image from "next/image";
-import {MenfessForm} from "~/app/graduates/menfess-form";
+import {MenfessForm} from "~/components/graduates/menfess-form";
 import * as React from "react";
 import Link from "next/link";
 import {Pencil, X} from "lucide-react";
