@@ -10,22 +10,17 @@ import { facultiesMajorsMap } from "~/lib/faculty-major";
 import { cn } from "~/lib/utils";
 import { FacultiesType } from "~/types/faculty-major";
 import { ChevronDown } from "lucide-react";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import * as React from "react";
 
 interface DropdownMajorProps {
   className?: string;
+  setVal?: (val: string) => void;
 }
 
 // FOR /graduates AND /ta-fair PAGE
-export function DropdownMajor({ className, ...props }: DropdownMajorProps) {
-  // pathname
-  const pathname = usePathname();
+export function DropdownMajor({ className, setVal, ...props }: DropdownMajorProps) {
 
-  // Router
-  const router = useRouter();
-
-  // Open / close state
   const [open, setOpen] = React.useState(false);
 
   // Get faculty from search params
@@ -45,21 +40,7 @@ export function DropdownMajor({ className, ...props }: DropdownMajorProps) {
 
   // On select
   const onSelect = (major: (typeof options)[number]) => {
-    // New search params
-    const newSearchParams = new URLSearchParams(searchParams);
-
-    // Set page to 1 (reset)
-    newSearchParams.set("page", "1");
-
-    // Set major
-    if (major == "Semua") {
-      newSearchParams.delete("major");
-    } else {
-      newSearchParams.set("major", major);
-    }
-
-    // Push new search params
-    router.replace(`${pathname}?${newSearchParams.toString()}`);
+    setVal?.(major);
   };
 
   return (

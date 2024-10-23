@@ -1,43 +1,24 @@
 "use client";
 
 import {Search} from "lucide-react";
-import {usePathname, useRouter, useSearchParams} from "next/navigation";
+import {useSearchParams} from "next/navigation";
 import * as React from "react";
 import {useDebouncedCallback} from "use-debounce";
 import type {HTMLAttributes} from "react";
 import {cn} from "~/lib/utils";
 
-const SearchInput = ({className, placeholder, children, onBlur, onFocus, onInput, ...props}: HTMLAttributes<HTMLInputElement> & {
-  placeholder?: string
+const SearchInput = ({className, placeholder, children, onBlur, onFocus, onInput, val, setVal, ...props}: HTMLAttributes<HTMLInputElement> & {
+  placeholder?: string,
+  val?: string,
+  setVal: (val: string) => void,
 }) => {
-  // Pathname
-  const pathname = usePathname();
-
-  // Router
-  const router = useRouter();
-
   // READONLY search params
   const searchParams = useSearchParams();
   const search = searchParams.get("search");
 
   // Debounce search input **ONCHANGE**
   const debounced = useDebouncedCallback((value) => {
-    //  Get all search params
-    const newSearchParams = new URLSearchParams(searchParams);
-
-    // Set page to 1 (reset)
-    newSearchParams.set("page", "1");
-
-    // Set search param
-    if (value) {
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-      newSearchParams.set("search", value);
-    } else {
-      newSearchParams.delete("search");
-    }
-
-    // Push new search params
-    router.replace(`${pathname}?${newSearchParams.toString()}`);
+    setVal(value as string);
   }, 500);
 
   return (

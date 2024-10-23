@@ -1,20 +1,45 @@
+"use client";
+
 import "~/styles/globals.css";
 import Image from "next/image";
 import {cn} from "~/lib/utils";
+import {Heart} from "lucide-react";
+import {useAction} from "next-safe-action/hooks";
+import {updateLikeTA} from "~/app/actions/likeTA";
+import {toast} from "sonner";
 
 export function BlocksLayout({
                                judulTA,
                                penulisTA,
                                jurusanPenulis,
                                jumlahLove,
-                               className
+                               className,
+                               id,
+                               update,
+                               isLiked
                              }: Readonly<{
   judulTA: string;
   penulisTA: string;
   jurusanPenulis: string;
   jumlahLove: string | number;
   className?: string;
+  id: string;
+  isLiked: boolean;
+  update: () => void;
 }>) {
+  const {execute, isExecuting} = useAction(updateLikeTA, {
+    onSuccess: ({data}) => {
+      update();
+      toast.success(data?.message);
+    },
+    onExecute: () => {
+      update();
+    },
+    onError: () => {
+      toast.error("Gagal menyukai TA");
+    }
+  });
+
   return (
     <div
       className={cn("bg-[url('/organogram/innerlight.png')] border border-purple-500 bg-cover bg-center object-center rounded-[20px] w-full md:w-3/4 lg:w-full h-96 p-1", className)}>
@@ -58,13 +83,12 @@ export function BlocksLayout({
           {jurusanPenulis}
         </h4>
         <h4 className="font-serif flex items-center z-10 my-1.5">
-          <Image
-            src={"/heart.png"}
-            alt={"Heart"}
-            width={18}
-            height={0}
-            className="h-5/6 mx-2"
-          />
+          <button disabled={isExecuting} onClick={(e) => {
+            execute({taId: id})
+            e.stopPropagation();
+          }}>
+            <Heart fill={isLiked ? "white" : "transparent"} className="w-5 h-5 mr-2"/>
+          </button>
           {jumlahLove}
         </h4>
       </div>

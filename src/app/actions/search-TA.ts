@@ -1,8 +1,9 @@
 "use server";
 
-import { z } from "zod";
-import { actionClient } from "~/lib/safe-action";
-import { prisma } from "~/server/db";
+import {z} from "zod";
+import {actionClient} from "~/lib/safe-action";
+import {prisma} from "~/server/db";
+import {cookies} from "next/headers";
 
 export const searchAllTA = actionClient
   .schema(
@@ -15,8 +16,9 @@ export const searchAllTA = actionClient
     }),
   )
   .action(
-    async ({ parsedInput: { nameOrTitle, faculty, major } }) => {
+    async ({parsedInput: {nameOrTitle, faculty, major}}) => {
       // const offset = (page - 1) * limit;
+      const cookie = cookies();
       try {
         const TARecords = await prisma.tA.findMany({
           where: {
@@ -56,7 +58,9 @@ export const searchAllTA = actionClient
             ],
           },
           select: {
+            id: true,
             title: true,
+            abstrak: true,
             wisudawan: {
               select: {
                 profile: {
@@ -78,13 +82,26 @@ export const searchAllTA = actionClient
           // skip: offset,
         });
 
-        const data = TARecords.map((ta) => ({
-          title: ta.title,
-          wisudawanName: ta.wisudawan?.profile?.name ?? "Unknown",
-          faculty: ta.wisudawan?.profile?.faculty ?? "Unknown",
-          major: ta.wisudawan?.profile?.major ?? "Unknown",
-          likeCount: ta._count.likes,
-        }));
+        const data = TARecords.map((ta) => {
+          const likeCookie = cookie.get(`liked_${ta.id}`)?.value;
+
+          return ({
+            title: ta.title,
+            wisudawanName:
+              ta.wisudawan?.profile?.name ?? "Unknown",
+            faculty:
+              ta.wisudawan?.profile?.faculty ?? "Unknown",
+            major:
+              ta.wisudawan?.profile?.major ?? "Unknown",
+            likeCount:
+            ta._count.likes,
+            abstrak:
+            ta.abstrak,
+            id:
+            ta.id,
+            isLiked: !!likeCookie,
+          })
+        });
 
         return data;
       } catch (error) {
@@ -93,7 +110,6 @@ export const searchAllTA = actionClient
       }
     },
   );
-
 
 export const searchTA = actionClient
   .schema(
@@ -106,7 +122,7 @@ export const searchTA = actionClient
     }),
   )
   .action(
-    async ({ parsedInput: { nameOrTitle, faculty, major, limit, page } }) => {
+    async ({parsedInput: {nameOrTitle, faculty, major, limit, page}}) => {
       const offset = (page - 1) * limit;
 
       try {
@@ -185,4 +201,3 @@ export const searchTA = actionClient
       }
     },
   );
-

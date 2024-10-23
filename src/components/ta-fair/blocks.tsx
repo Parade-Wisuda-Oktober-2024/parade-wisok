@@ -1,52 +1,132 @@
+"use client";
+
 import {SearchInput} from "~/components/filter/search";
-import {DropdownFaculty} from "~/components/filter/dropdown-faculty";
-import {DropdownMajor} from "~/components/filter/dropdown-major";
 import * as React from "react";
-import CardDialog from "~/app/ta-fair/card-dialog";
+import {useAction} from "next-safe-action/hooks";
+import {searchAllTA} from "~/app/actions/search-TA";
+import {useEffect, useState} from "react";
+import {Dialog, DialogContent} from "~/components/ui/dialog";
+import {BlocksLayout} from "~/app/ta-fair/wrapper";
+import {cn} from "~/lib/utils";
+import Image from "next/image";
+import {Heart} from "lucide-react";
 
 function TABlocks() {
-  const absss = "Kendaraan listrik (EV) telah muncul sebagai solusi inovatif untuk mengatasi masalah polusi udara dan ketergantungan pada bahan bakar fosil. Artikel ini membahas perkembangan teknologi EV, termasuk kemajuan dalam baterai lithium-ion dan sistem pengisian daya. Selain itu, analisis dilakukan terhadap dampak lingkungan EV dibandingkan dengan kendaraan konvensional, dengan penekanan pada pengurangan emisi gas rumah kaca. Penelitian ini juga mengeksplorasi tantangan yang dihadapi industri EV, seperti infrastruktur pengisian yang masih terbatas dan biaya produksi yang tinggi. Melalui pemahaman yang lebih baik tentang potensi dan hambatan, studi ini memberikan wawasan yang dapat membantu pembuat kebijakan dalam merumuskan strategi yang mendukung adopsi kendaraan listrik secara lebih luas."
+  const {execute, result} = useAction(searchAllTA);
+
+  useEffect(() => {
+    execute({nameOrTitle: "", faculty: "", major: ""});
+  }, [execute])
+  const [selectedTA, setSelectedTA] = useState<{
+    abs: string,
+    name: string,
+    title: string,
+    likes: number | string,
+    major: string,
+    isLiked: boolean,
+    id?: string
+  } | null>(null);
+
+  const [open, setOpen] = useState(false);
+  const [nameOrTitle, setNameOrTitle] = useState("");
+
+  useEffect(() => {
+    execute({nameOrTitle});
+  }, [nameOrTitle, execute
+  ]);
+
+  function updateData() {
+    execute({nameOrTitle});
+  }
+
   return (
     <div className="relative flex-col flex justify-center items-center">
       {/* INPUT PLACEHOLDER */}
       <div className="flex gap-4 max-w-full">
         <React.Suspense fallback={null}>
-          <SearchInput className='max-h-12 md:w-[50vw] w-min' data-aos="fade-up" data-aos-delay="150"/>
-          <DropdownFaculty className='max-h-12 w-28' data-aos="fade-up"
-                           data-aos-delay="150"/>
-          <DropdownMajor
-            data-aos="fade-up"
-            data-aos-delay="150"
-            className='max-h-12 w-28'
-          />
+          <SearchInput setVal={setNameOrTitle} className='max-h-12 md:w-[50vw] w-min' data-aos="fade-up"
+                       data-aos-delay="150"/>
         </React.Suspense>
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-10 place-items-center my-6 md:my-8">
-        <CardDialog
-          judulTA={"ADOPSI KENDARAAN LISTRIK UNTUK JARINGAN MANAJEMEN RANTAI PASOKAN : SEBUAH TINJAUAN DAN AGENDA PENELITIAN"}
-          penulisTA={"Muhammad Fadhlan Armon"}
-          jurusanPenulis={"Manajemen"}
-          jumlahLove={"6"}
-          abstrakTA={absss}/>
-        <CardDialog
-          judulTA={"ADOPSI KENDARAAN LISTRIK UNTUK JARINGAN MANAJEMEN RANTAI PASOKAN : SEBUAH TINJAUAN DAN AGENDA PENELITIAN"}
-          penulisTA={"Muhammad Fadhlan Armon"}
-          jurusanPenulis={"Manajemen"}
-          jumlahLove={"6"}
-          abstrakTA={absss}/>
-        <CardDialog
-          judulTA={"ADOPSI KENDARAAN LISTRIK UNTUK JARINGAN MANAJEMEN RANTAI PASOKAN : SEBUAH TINJAUAN DAN AGENDA PENELITIAN"}
-          penulisTA={"Muhammad Fadhlan Armon"}
-          jurusanPenulis={"Manajemen"}
-          jumlahLove={"6"}
-          abstrakTA={absss}/>
-        <CardDialog
-          judulTA={"ADOPSI KENDARAAN LISTRIK UNTUK JARINGAN MANAJEMEN RANTAI PASOKAN : SEBUAH TINJAUAN DAN AGENDA PENELITIAN"}
-          penulisTA={"Muhammad Fadhlan Armon"}
-          jurusanPenulis={"Manajemen"}
-          jumlahLove={"6"}
-          abstrakTA={absss}/>
-
+        <Dialog open={open} onOpenChange={setOpen}>
+          <DialogContent className='p-0 bg-transparent border-0 w-[90vw] md:min-w-[75vw]'>
+            <div
+              className={cn("bg-[url('/organogram/innerlight.png')] border border-purple-500 bg-cover bg-center object-center rounded-[20px] w-full h-[75vh] md:h-[60vh] p-1")}>
+              <div
+                className="relative flex z-0 h-full flex-col bg-[url('/blocks-bg.png')] justify-center items-center p-6 rounded-[16px]">
+                {/* ornaments */}
+                <div className="absolute top-1/3 right-0 z-0 w-auto h-1/3 opacity-60">
+                  <Image
+                    src={'/VIS-SWIRL-2.png'}
+                    alt="/VIS-SWIRL-2.png"
+                    width={200}
+                    height={0}
+                  />
+                </div>
+                <div className="absolute top-2/3 left-0 z-0 w-auto h-1/5 opacity-60">
+                  <Image
+                    src={'/VIS-SWIRL-2.png'}
+                    alt="/VIS-SWIRL-2.png"
+                    width={100}
+                    height={50}
+                    style={{transform: 'scaleX(-1)'}}
+                  />
+                </div>
+                <div className="absolute top-2/3 left-10 z-0 w-auto h-1/5">
+                  <Image
+                    src={'/VIS-25-3.png'}
+                    alt="/VIS-SWIRL-2.png"
+                    width={40}
+                    height={40}
+                    className="-rotate-45"
+                  />
+                </div>
+                {/* main content */}
+                <h2 className="font-serif text-center z-10 my-1.5 md:text-2xl text-lg">
+                  {selectedTA?.title}
+                </h2>
+                <h4 className="text-center z-10 my-1.5 text-lg italic font-sub-header">
+                  {selectedTA?.name}
+                </h4>
+                <h4 className="font-serif z-10 my-1.5 text-lg">
+                  {selectedTA?.major}
+                </h4>
+                <h4 className="font-serif z-10 my-1.5 text-sm md:text-base lg:text-lg overflow-y-scroll text-justify">
+                  {selectedTA?.abs}
+                </h4>
+                <h4 className="font-serif flex items-center z-10 my-1.5">
+                  <Heart fill={selectedTA?.isLiked ? "white" : "transparent"} className="w-5 h-5 mr-2"/>
+                  {selectedTA?.likes}
+                </h4>
+              </div>
+            </div>
+          </DialogContent>
+        </Dialog>
+        {result.data?.map((ta) => (
+          <div className="" key={ta.title} onClick={() => {
+            setSelectedTA({
+              abs: ta.abstrak,
+              name: ta.wisudawanName,
+              title: ta.title,
+              likes: ta.likeCount,
+              major: ta.major,
+              isLiked: ta.isLiked,
+              id: ta.id
+            });
+            setOpen(true);
+          }}>
+            <BlocksLayout
+              key={ta.title}
+              judulTA={ta.title}
+              penulisTA={ta.wisudawanName}
+              jurusanPenulis={ta.major}
+              jumlahLove={ta.likeCount}
+              id={ta.id}
+              isLiked={ta.isLiked}
+              update={updateData}/>
+          </div>
+        ))}
       </div>
     </div>
   );

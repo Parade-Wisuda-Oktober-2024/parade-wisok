@@ -8,7 +8,7 @@ export default function CardDialog({abstrakTA, className, judulTA, penulisTA, ju
   judulTA: string;
   penulisTA: string;
   jurusanPenulis: string;
-  jumlahLove: string;
+  jumlahLove: string | number;
   className?: string;
   abstrakTA: string;
 }) {

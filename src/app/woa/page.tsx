@@ -1,11 +1,13 @@
+"use client";
+
 import React from "react";
 import Title from "~/components/title";
 import {SearchInput} from "~/components/filter/search";
-import {DropdownFaculty} from "~/components/filter/dropdown-faculty";
 import {WoaCard} from "~/app/woa/woa-card";
 import FormDialog from "~/app/woa/form-dialog";
 
 export default function Page() {
+  const [search, setSearch] = React.useState("");
   return (
     <div
       className="relative min-h-screen flex flex-col items-center px-6 sm:px-8 md:px-10 gap-6 md:gap-8 pb-8 md:pb-10">
@@ -18,9 +20,8 @@ export default function Page() {
       </Title>
       <div className="flex gap-4 max-w-full">
         <React.Suspense fallback={null}>
-          <SearchInput className='max-h-12 md:w-[50vw] w-min' data-aos="fade-up" data-aos-delay="150"/>
-          <DropdownFaculty className='max-h-12 w-28' data-aos="fade-up"
-                           data-aos-delay="150"/>
+          <SearchInput setVal={setSearch} className='max-h-12 md:w-[50vw] w-min' data-aos="fade-up"
+                       data-aos-delay="150"/>
         </React.Suspense>
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-10 place-items-center">
