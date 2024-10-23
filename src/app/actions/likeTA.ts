@@ -12,16 +12,20 @@ export const updateLikeTA = actionClient
   .action(async ({ parsedInput: { taId } }) => {
     const cookie = cookies();
     const likeCookie = cookie.get(`liked_${taId}`)?.value;
-    const userCookie =
-      cookie.get("next-auth.session-token")?.value ??
-      cookie.get("__Secure-next-auth.session-token")?.value;
 
-    console.log("User Cookie: ", userCookie);
     try {
+      const user_ = await prisma.tA.findUnique({
+        where: {
+          id: taId,
+        },
+        select: {
+          wisudawanId: true,
+        }
+      })
       if (likeCookie) {
         await prisma.like.deleteMany({
           where: {
-            userId: userCookie,
+            userId: user_?.wisudawanId,
             taId: taId,
           },
         });
@@ -45,27 +49,10 @@ export const updateLikeTA = actionClient
         return data;
       }
 
-      const user = await prisma.user.findFirst({
-        where: {
-          id: userCookie,
-        },
-      });
-
-      if (!user) {
-        await prisma.user.create({
-          data: {
-            id: userCookie ?? randomUUID(),
-            nim: "00024000",
-            passwordHash: "hashedPassword123",
-            role: "USER",
-          },
-        });
-      }
-
       await prisma.like.create({
         data: {
           taId: taId,
-          userId: userCookie ?? randomUUID(),
+          userId: user_?.wisudawanId ?? randomUUID(),
         },
       });
 
@@ -74,15 +61,8 @@ export const updateLikeTA = actionClient
         path: "/",
       });
 
-      const likeCount = await prisma.like.count({
-        where: {
-          taId: taId,
-        },
-      });
-
       const data = {
         message: "Berhasil menyukai TA",
-        updatedLikes: likeCount,
       };
 
       return data;
