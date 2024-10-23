@@ -1,13 +1,21 @@
 "use client";
 
-import React from "react";
+import React, {useEffect} from "react";
 import Title from "~/components/title";
 import {SearchInput} from "~/components/filter/search";
 import {WoaCard} from "~/app/woa/woa-card";
 import FormDialog from "~/app/woa/form-dialog";
+import {useAction} from "next-safe-action/hooks";
+import {searchWOA} from "~/app/actions/search-WOA";
 
 export default function Page() {
   const [search, setSearch] = React.useState("");
+  const {execute, result, isExecuting, isPending} = useAction(searchWOA);
+
+  useEffect(() => {
+    execute({nameOrNim: search, content: search});
+  }, [execute, search])
+
   return (
     <div
       className="relative min-h-screen flex flex-col items-center px-6 sm:px-8 md:px-10 gap-6 md:gap-8 pb-8 md:pb-10">
@@ -25,22 +33,11 @@ export default function Page() {
         </React.Suspense>
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-10 place-items-center">
-        <WoaCard to={"Adi Haditya"}
-                 toFaculty={"Teknik Mesin"}
-                 toNIM={"13122080"}
-                 message={"Mau bilang terima kasih banget buat jadi orang yang super baik! Kamu selalu bisa jadi inspirasi buat kita semua. Dengan sikap dan kebaikanmu, kamu bikin perjalanan kita lebih mudah dan menyenangkan. Semoga kamu terus bersinar dan bawa semangat positif ke semua orang. Kita semua menghargai semua yang kamu lakukan. Keep inspiring us, ya!"}/>
-        <WoaCard to={"Adi Haditya"}
-                 toFaculty={"Teknik Mesin"}
-                 toNIM={"13122080"}
-                 message={"Mau bilang terima kasih banget buat jadi orang yang super baik! Kamu selalu bisa jadi inspirasi buat kita semua. Dengan sikap dan kebaikanmu, kamu bikin perjalanan kita lebih mudah dan menyenangkan. Semoga kamu terus bersinar dan bawa semangat positif ke semua orang. Kita semua menghargai semua yang kamu lakukan. Keep inspiring us, ya!"}/>
-        <WoaCard to={"Adi Haditya"}
-                 toFaculty={"Teknik Mesin"}
-                 toNIM={"13122080"}
-                 message={"Mau bilang terima kasih banget buat jadi orang yang super baik! Kamu selalu bisa jadi inspirasi buat kita semua. Dengan sikap dan kebaikanmu, kamu bikin perjalanan kita lebih mudah dan menyenangkan. Semoga kamu terus bersinar dan bawa semangat positif ke semua orang. Kita semua menghargai semua yang kamu lakukan. Keep inspiring us, ya!"}/>
-        <WoaCard to={"Adi Haditya"}
-                 toFaculty={"Teknik Mesin"}
-                 toNIM={"13122080"}
-                 message={"Mau bilang terima kasih banget buat jadi orang yang super baik! Kamu selalu bisa jadi inspirasi buat kita semua. Dengan sikap dan kebaikanmu, kamu bikin perjalanan kita lebih mudah dan menyenangkan. Semoga kamu terus bersinar dan bawa semangat positif ke semua orang. Kita semua menghargai semua yang kamu lakukan. Keep inspiring us, ya!"}/>
+        {isPending || isExecuting && <div className="text-center">Loading...</div>}
+        {result.data?.map((woa) => (
+          <WoaCard key={woa.woaId} from={woa.senderName} to={woa.name} toFaculty={woa.major} toNIM={woa.nim}
+                   message={woa.content}/>
+        ))}
       </div>
     </div>
   );

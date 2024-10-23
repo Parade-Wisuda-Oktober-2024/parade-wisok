@@ -5,20 +5,20 @@ import {
   isMajorValid,
   isPageValid,
 } from "~/components/filter/validate-filter";
-import { GraduateCard } from "./graduates-card";
-import { ClientPagination } from "~/components/filter/client-pagination";
-import { DropdownFaculty } from "~/components/filter/dropdown-faculty";
-import { DropdownMajor } from "~/components/filter/dropdown-major";
-import { SearchInput } from "~/components/filter/search";
-import type { UserPublic } from "~/types/user";
-import { useRouter, useSearchParams } from "next/navigation";
+import {GraduateCard} from "./graduates-card";
+import {ClientPagination} from "~/components/filter/client-pagination";
+import {DropdownFaculty} from "~/components/filter/dropdown-faculty";
+import {DropdownMajor} from "~/components/filter/dropdown-major";
+import {SearchInput} from "~/components/filter/search";
+import type {UserPublic} from "~/types/user";
+import {useRouter, useSearchParams} from "next/navigation";
 import * as React from "react";
 
 interface GraduateViewProps {
   graduates: UserPublic[];
 }
 
-export function GraduateView({ graduates }: GraduateViewProps) {
+export function GraduateView({graduates}: GraduateViewProps) {
   // Router
   const router = useRouter();
 
@@ -43,7 +43,7 @@ export function GraduateView({ graduates }: GraduateViewProps) {
       (!search || g.name.toLowerCase().includes(search.toLowerCase())) // Search filter
     );
   });
-  console.log(graduates); 
+  console.log(graduates);
   console.log(filteredGraduates);
   const total = filteredGraduates.length; // Total graduates after filtering
 
@@ -77,7 +77,9 @@ export function GraduateView({ graduates }: GraduateViewProps) {
     <div className="flex w-full flex-col gap-5 lg:gap-7">
       <div className="z-10 flex flex-row justify-between gap-4 lg:gap-6">
         {/* Search Input */}
-        <SearchInput data-aos="fade-up" data-aos-delay="150" />
+        <SearchInput setVal={() => {
+          return ""
+        }} data-aos="fade-up" data-aos-delay="150"/>
         {/* Dropdowns */}
         <div className="flex flex-col flex-wrap gap-4 sm:flex-row lg:gap-6">
           {/* Faculty */}
@@ -96,7 +98,8 @@ export function GraduateView({ graduates }: GraduateViewProps) {
       </div>
       {/* Cards Grid */}
       {filteredGraduates.length === 0 ? (
-        <div className="animate-in-fadetop-8 flex h-52 flex-col items-center justify-center gap-2 text-center text-[#F4D38E] lg:gap-4">
+        <div
+          className="animate-in-fadetop-8 flex h-52 flex-col items-center justify-center gap-2 text-center text-[#F4D38E] lg:gap-4">
           <p className="font-paragraph text-xl lg:text-3xl">
             Wisudawan tidak ditemukan
           </p>

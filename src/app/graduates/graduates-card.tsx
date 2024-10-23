@@ -116,10 +116,9 @@ export function GraduateCard({
             </div>
 
             {/* Menfess Form */}
-            <MenfessForm
-              targetUserId={graduate.id}
-              onFinishSubmit={() => setIsOpen(false)}
-            />
+            {/*<MenfessForm*/}
+            {/*  onFinishSubmit={() => setIsOpen(false)}*/}
+            {/*/>*/}
           </div>
         </div>
       </DialogContent>

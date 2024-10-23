@@ -8,7 +8,7 @@
     "node": "20.14.0"
   },
   "scripts": {
-    "prebuild": "prisma generate && prisma migrate deploy",
+    "prebuild": "",
     "build": "next build",
     "build:digitalocean": "npm install --production=false && npm run build && npm ci",
     "db:generate": "prisma migrate dev",
@@ -28,16 +28,16 @@
   "dependencies": {
     "@auth/prisma-adapter": "^1.6.0",
     "@hookform/resolvers": "^3.9.0",
-    "@paradewisokto2024/database": "github:Parade-Wisuda-Oktober-2024/database#cbeaa44746d94c166a97d1467efc951da9ed746d",
+    "@paradewisokto2024/database": "github:Parade-Wisuda-Oktober-2024/database#413f1344784f9486d9997705253545e9f2e82659",
     "@prisma/client": "^5.18.0",
     "@radix-ui/react-accordion": "^1.2.1",
     "@radix-ui/react-avatar": "^1.1.1",
     "@radix-ui/react-collapsible": "^1.1.1",
     "@radix-ui/react-dialog": "^1.1.2",
-    "@radix-ui/react-popover": "^1.1.2",
     "@radix-ui/react-dropdown-menu": "^2.1.2",
     "@radix-ui/react-label": "^2.1.0",
     "@radix-ui/react-menubar": "^1.1.2",
+    "@radix-ui/react-popover": "^1.1.2",
     "@radix-ui/react-scroll-area": "^1.2.0",
     "@radix-ui/react-slot": "^1.1.0",
     "@radix-ui/react-switch": "^1.1.1",

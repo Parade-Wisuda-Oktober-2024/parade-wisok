@@ -2,30 +2,36 @@
 
 import { z } from "zod";
 import { actionClient } from "~/lib/safe-action";
-import { prisma } from "../../server/db";
-import { randomUUID } from "node:crypto";
+import { prisma } from "~/server/db";
 
 export const submitWOA = actionClient
   .schema(
     z.object({
-      toUser: z.string().min(1, {}),
+      targetName: z.string().min(1, {}),
+      targetNIM: z.string().min(1, {}),
+      targetMajor: z.string().min(1, {}),
       content: z.string().min(2, {}),
       sender: z.string(),
-      anon: z.boolean(),
+
     }),
   )
-  .action(async ({ parsedInput: { toUser, content, sender, anon } }) => {
+  .action(async ({ parsedInput: { targetName, targetMajor, targetNIM, content, sender } }) => {
     try {
-      const WOA = await prisma.wOA.create({
+      const WOA = await prisma.woA.create({
         data: {
-          id: randomUUID(),
-          userId: toUser,
+          targetName,
+          targetMajor,
+          targetNIM,
           content,
           sender,
-          anon,
         },
-      });
-      return true;
+      })
+
+      if (!WOA) {
+        throw new Error("Failed to post WOA.");
+      }
+
+      return WOA;
     } catch (error) {
       console.log(error);
       throw new Error("Failed post WOA.");

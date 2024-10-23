@@ -12,7 +12,7 @@ import Image from "next/image";
 import {Heart} from "lucide-react";
 
 function TABlocks() {
-  const {execute, result} = useAction(searchAllTA);
+  const {execute, result, isExecuting, isPending} = useAction(searchAllTA);
 
   useEffect(() => {
     execute({nameOrTitle: "", faculty: "", major: ""});
@@ -48,7 +48,9 @@ function TABlocks() {
                        data-aos-delay="150"/>
         </React.Suspense>
       </div>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-10 place-items-center my-6 md:my-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-10 place-items-center my-6 md:my-8"
+           data-aos="fade-up"
+           data-aos-delay="150">
         <Dialog open={open} onOpenChange={setOpen}>
           <DialogContent className='p-0 bg-transparent border-0 w-[90vw] md:min-w-[75vw]'>
             <div
@@ -103,6 +105,7 @@ function TABlocks() {
             </div>
           </DialogContent>
         </Dialog>
+        {isPending || isExecuting && <div className="text-center">Loading...</div>}
         {result.data?.map((ta) => (
           <div className="" key={ta.title} onClick={() => {
             setSelectedTA({

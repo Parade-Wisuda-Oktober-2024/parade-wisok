@@ -42,6 +42,11 @@ export default function Profile() {
         jurusanPenulis={"Manajemen"}
         jumlahLove={"6"}
         className="lg:w-3/4"
+        isLiked={true}
+        update={() => {
+          console.log("update");
+        }}
+        id={"1"}
       />
       <div className="flex flex-col items-center z-10 mt-16 gap-5 mb-14 ">
         <Title>Pesan</Title>

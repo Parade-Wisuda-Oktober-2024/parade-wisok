@@ -23,7 +23,10 @@ import bca from "public/sponsorship/sponsor/bca.png";
 import esize from "public/sponsorship/sponsor/esize.png";
 import frestea from "public/sponsorship/sponsor/frestea.png";
 import mahakaX from "public/sponsorship/sponsor/mahakaX.png";
-import propan from "public/sponsorship/sponsor/propan.jpg";
+import propan from "public/sponsorship/sponsor/propan.png";
+import iom from "public/sponsorship/sponsor/iom.png";
+import tsel from "public/sponsorship/sponsor/tsel.png";
+import agra from "public/sponsorship/sponsor/agra.jpeg";
 import SponsorCard from "../../components/sponsorship/SponsorCard";
 import InfiniteCarousel from "../../components/sponsorship/InfiniteCarousel";
 import Title from "~/components/title";
@@ -162,7 +165,7 @@ export function Sponsor() {
   >
     <div className="grid-col-1 md:grid-col-2 lg:grid-col-3 m-auto mb-10 grid w-full max-w-7xl">
       <div className="flex flex-wrap justify-center">
-        {[bca, esize, frestea, mahakaX, propan].map((sponsorImgUrl, index) => (
+        {[bca, esize, iom, tsel, agra, frestea, mahakaX, propan].map((sponsorImgUrl, index) => (
           <motion.div key={index} variants={item}>
             <SponsorCard sponsorImgUrl={sponsorImgUrl}/>
           </motion.div>
