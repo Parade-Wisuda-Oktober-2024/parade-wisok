@@ -14,12 +14,12 @@ const Details: React.FC = () => {
         <img
           src="/IMG_2009 1.svg"
           alt="IMG_2009 1"
-          className="absolute bottom-[10vh] w-48 md:w-96 right-0"
+          className="absolute bottom-[10vh] w-48 md:w-96 right-0 z-0"
         />
         <img
           src="/IMG_2009 2.svg"
           alt="IMG_2009 2"
-          className="absolute bottom-[10vh] w-40 md:w-96 left-0"
+          className="absolute bottom-[10vh] w-40 md:w-96 left-0 z-0"
         />
         <div className="flex flex-col items-center z-10 mb-10 md:mb-14">
           <Title1 className="text-4xl md:text-6xl lg:text-8xl">WELCOME TO</Title1>
@@ -36,7 +36,7 @@ const Details: React.FC = () => {
             wisuda juga tentang budaya mahasiswa sarjana ITB.
           </p>
         </div>
-        <div className="flex flex-col items-center mt-2 md:mt-6">
+        <div className="flex flex-col items-center mt-2 md:mt-6 z-10">
           <Title2 className="text-3xl md:text-5xl lg:text-6xl">SUNDAY OCTOBER</Title2>
           <Title2 className="text-3xl md:text-5xl lg:text-6xl">27TH 2024</Title2>
         </div>

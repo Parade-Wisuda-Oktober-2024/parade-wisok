@@ -3,7 +3,8 @@ import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Image from "next/image";
-import merchbg from "../../../public/merchandise/merch-bg.png";
+import merchbg from "../../../public/merchandise/merch-bg-sm.png";
+import Link from "next/link";
 
 interface MerchCardProps {
   title: string;
@@ -22,7 +23,7 @@ const MerchCard: React.FC<MerchCardProps> = ({ title, photo }) => {
   }, []);
 
   return (
-    <div className="relative w-[207px] h-[207px] sm:w-[353px] sm:h-[353px] group cursor-pointer" data-aos="fade-down" data-aos-delay="100">
+    <Link href="https://bit.ly/POMerchWisokto2024" target="_blank" className="relative w-[207px] h-[207px] sm:w-[353px] sm:h-[353px] group cursor-pointer" data-aos="fade-down" data-aos-delay="100">
       <div className="absolute inset-0 bg-[#FFE6B2] opacity-75 blur-sm rounded-xl group-hover:opacity-100 transition-opacity duration-300"></div>
       <Image src={merchbg} alt="merchbg" fill className="object-cover z-10 rounded-xl" />
       <div className="absolute inset-0 flex flex-col items-center justify-center p-2 z-30">
@@ -37,7 +38,7 @@ const MerchCard: React.FC<MerchCardProps> = ({ title, photo }) => {
           </h1>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

@@ -10,8 +10,8 @@ const OrganogramCard: React.FC<OrganogramCardProps> = ({
     title,
     batch,
 }) => {
-  const outerFrame = frameType === 'dark' ? '/organogram/borderdark.png' : '/organogram/borderlight.png';
-  const innerFrame = frameType === 'dark' ? '/organogram/innerdark.png' : '/organogram/innerlight.png';
+  const outerFrame = frameType === 'dark' ? '/organogram/borderdark-sm.png' : '/organogram/borderlight-sm.png';
+  const innerFrame = frameType === 'dark' ? '/organogram/innerdark-sm.png' : '/organogram/innerlight-sm.png';
 
   return (
     <div

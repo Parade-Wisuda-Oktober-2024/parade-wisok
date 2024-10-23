@@ -42,9 +42,9 @@ export function BlocksLayout({
 
   return (
     <div
-      className={cn("bg-[url('/organogram/innerlight.png')] border border-purple-500 bg-cover bg-center object-center rounded-[20px] w-full md:w-3/4 lg:w-full h-96 p-1", className)}>
+      className={cn("bg-[url('/organogram/innerlight-sm.png')] border border-purple-500 bg-cover bg-center object-center rounded-[20px] w-full md:w-3/4 lg:w-full h-96 p-1", className)}>
       <div
-        className="relative flex z-0 h-full flex-col bg-[url('/blocks-bg.png')] justify-center items-center p-6 rounded-[16px]">
+        className="relative flex z-0 h-full flex-col bg-[url('/blocks-bg-sm.png')] justify-center items-center p-6 rounded-[16px]">
         {/* ornaments */}
         <div className="absolute top-1/3 right-0 z-0 w-auto h-1/3 opacity-60">
           <Image

@@ -31,7 +31,6 @@ const NavBar = ({session}: { session: Session | null }) => {
   // ELEMENT YANG DIRENDER BASED ON STATE SESSION: PROFIL dan TOMBOL LOGIN, both di navbar dan slidebar
 
   const taFair = pathname == "/ta-fair"
-  const graduates = pathname == "/graduates"
   const merchandise = pathname == "/merchandise"
   const sponshorship = pathname == "/sponsorship"
   const aboutUs = pathname == "/about-us"
@@ -73,13 +72,6 @@ const NavBar = ({session}: { session: Session | null }) => {
                   <div className={`p-[10px] ${!taFair ? 'hover:bg-[#FF8CD926]' : ''} rounded-lg transition-all`}>TA Fair
                     <div
                       className={`h-0.5 bg-[#F9BE6B] rounded-lg translate-y-0.5 transform origin-top transition-all ease-out duration-300 ${taFair ? '-scale-y-100 h-0.5 opacity-100' : 'scale-y-0 h-0 opacity-0'}`}></div>
-                  </div>
-                </Link>
-                <Link onClick={() => setIsOpen(false)} href="/graduates">
-                  <div
-                    className={`p-[10px] ${!graduates ? 'hover:bg-[#FF8CD926]' : ''} rounded-lg transition-all`}>Graduates
-                    <div
-                      className={`h-0.5 bg-[#F9BE6B] rounded-lg translate-y-0.5 transform origin-top transition-all ease-out duration-300 ${graduates ? '-scale-y-100 h-0.5 opacity-100' : 'scale-y-0 h-0 opacity-0'}`}></div>
                   </div>
                 </Link><Link onClick={() => setIsOpen(false)} href="/woa">
                 <div
@@ -145,12 +137,7 @@ const NavBar = ({session}: { session: Session | null }) => {
                 className={`h-1 bg-[#F9BE6B] rounded-lg transform origin-top transition-all ease-out duration-300 ${taFair ? '-scale-y-100 h-1 opacity-100' : 'scale-y-0 h-0 opacity-0'}`}></div>
             </div>
           </Link>
-          <Link href="/graduates">
-            <div className={`p-[10px] ${!graduates ? 'hover:bg-[#FF8CD926]' : ''} rounded-lg transition-all`}>Graduates
-              <div
-                className={`h-1 bg-[#F9BE6B] rounded-lg transform origin-top transition-all ease-out duration-300 ${graduates ? '-scale-y-100 h-1 opacity-100' : 'scale-y-0 h-0 opacity-0'}`}></div>
-            </div>
-          </Link><Link href="/woa">
+          <Link href="/woa">
           <div className={`p-[10px] ${!woa ? 'hover:bg-[#FF8CD926]' : ''} rounded-lg transition-all`}>WoA
             <div
               className={`h-1 bg-[#F9BE6B] rounded-lg transform origin-top transition-all ease-out duration-300 ${woa ? '-scale-y-100 h-1 opacity-100' : 'scale-y-0 h-0 opacity-0'}`}></div>

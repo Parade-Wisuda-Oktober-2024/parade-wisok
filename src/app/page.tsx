@@ -21,7 +21,7 @@ export default function HomePage() {
         <Sponsor />
         <SeparatorLanding />
       </div>
-      <div className="flex flex-1 items-center justify-center relative flex-col min-h-screen">
+      <div className="flex flex-1 items-center justify-center relative flex-col min-h-screen py-10">
         <Title className="mb-10">FAQ</Title>
         <br></br>
         <FAQ></FAQ>
