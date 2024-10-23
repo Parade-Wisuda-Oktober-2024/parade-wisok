@@ -158,7 +158,7 @@ export const authOptions: NextAuthOptions = {
         return {
           id: user.id,
           role: user.role,
-          name: profile?.name ? profile?.name : "",
+          name: profile?.name ?? "",
         };
       },
     }),

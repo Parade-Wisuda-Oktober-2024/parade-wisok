@@ -64,3 +64,134 @@
         @apply text-xs sm:text-xs md:text-sm font-paragraph;
     }
 }
+
+
+@keyframes scroll-left {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(calc(-300px * 20 - 160px));
+    }
+}
+
+@keyframes scroll-right {
+    0% {
+        transform: translateX(calc(-300px * 20 - 160px));
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+.sponsor-slider {
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+    margin: auto;
+}
+
+
+.scroll-left {
+    display: inline-flex;
+    animation: scroll-left 50s linear infinite;
+    width: calc(300px * 40 + 320px)
+}
+
+.scroll-right {
+    display: inline-flex;
+    animation: scroll-right 50s linear infinite;
+    width: calc(300px * 40 + 320px)
+}
+
+.sponsor-card {
+    display: inline-block;
+    flex-shrink: 0;
+    width: 300px;
+    height: 150px;
+    transition: transform 0.3s ease-in-out;
+    background: rgba(45, 38, 72, 0.3);
+    border: 2px solid;
+    border-color: #9333ea;
+    padding: 4px;
+    position: relative;
+}
+
+.sponsor-card:hover {
+    transform: scale(1.03);
+}
+
+@media (max-width: 768px) {
+    .sponsor-card {
+        width: 150px;
+    }
+
+    .scroll-left,
+    .scroll-right {
+        width: calc(150px * 40 + 160px);
+    }
+
+    @keyframes scroll-left {
+        0% {
+            transform: translateX(0%);
+        }
+        100% {
+            transform: translateX(calc(-150px * 20 - 80px));
+        }
+    }
+
+    @keyframes scroll-right {
+        0% {
+            transform: translateX(calc(-150px * 20 - 80px));
+        }
+        100% {
+            transform: translateX(0%);
+        }
+    }
+}
+
+@media (max-width: 640px) {
+    .sponsor-card {
+        width: 100px;
+    }
+
+    .scroll-left,
+    .scroll-right {
+        width: calc(100px * 40 + 80px);
+    }
+
+    @keyframes scroll-left {
+        0% {
+            transform: translateX(0%);
+        }
+        100% {
+            transform: translateX(calc(-100px * 20 - 40px));
+        }
+    }
+
+    @keyframes scroll-right {
+        0% {
+            transform: translateX(calc(-100px * 20 - 40px));
+        }
+        100% {
+            transform: translateX(0%);
+        }
+    }
+}
+
+@layer utilities {
+    .bg-gradient-text-aboutus {
+        background: linear-gradient(180deg, #FFF3D9 32.85%, #FFD787 73.26%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: transparent;
+        text-shadow: 4px 4px 20px #FF8CD9;
+        font-style: normal;
+        font-weight: 700;
+    }
+
+    .bg-gradient-vm {
+        background: linear-gradient(180deg, #9245B9 0%, #43187D 100%);
+    }
+}
