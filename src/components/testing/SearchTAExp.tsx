@@ -31,6 +31,7 @@ const SearchTAExp = () => {
           result.data.map((ta) => (
             <div key={ta.title}>
               <h3>{ta.title}</h3>
+              <p>ID: {ta.taId}</p>
               <p>Wisudawan Name: {ta.wisudawanName}</p>
               <p>Faculty: {ta.faculty}</p>
               <p>Major: {ta.major}</p>
