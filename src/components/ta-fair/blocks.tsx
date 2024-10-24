@@ -105,7 +105,7 @@ function TABlocks() {
             </div>
           </DialogContent>
         </Dialog>
-        { isExecuting && <div className="text-center">Loading...</div>}
+        { isExecuting && result.data?.length === 0 && <div className="text-center">Loading...</div>}
         {result.data?.map((ta) => (
           <div className="" key={ta.title} onClick={() => {
             setSelectedTA({
