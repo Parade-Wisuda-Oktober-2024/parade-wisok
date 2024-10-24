@@ -27,9 +27,10 @@ const menfessSchema = z.object({
 interface MenfessFormProps {
   onFinishSubmit?: () => void;
   setIsOpen: (value: boolean) => void;
+  update?: () => void;
 }
 
-const MenfessForm = ({onFinishSubmit, setIsOpen}: MenfessFormProps) => {
+const MenfessForm = ({onFinishSubmit, setIsOpen, update}: MenfessFormProps) => {
   const [wisudawan, setWisudawan] = useState("");
   const [isTyping, setIsTyping] = useState(false);
   // Form Hooks
@@ -46,6 +47,7 @@ const MenfessForm = ({onFinishSubmit, setIsOpen}: MenfessFormProps) => {
   const {execute, isExecuting} = useAction(submitWOA, {
     onSuccess: () => {
       setIsOpen(false);
+      update?.();
       toast.success("Menfess sent successfully");
     },
     onError: ({error: {serverError, validationErrors}}) => {

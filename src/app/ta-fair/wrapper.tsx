@@ -4,7 +4,7 @@ import "~/styles/globals.css";
 import Image from "next/image";
 import {cn} from "~/lib/utils";
 import {Heart} from "lucide-react";
-import {useAction} from "next-safe-action/hooks";
+import {useAction, useOptimisticAction} from "next-safe-action/hooks";
 import {updateLikeTA} from "~/app/actions/likeTA";
 import {toast} from "sonner";
 
@@ -27,10 +27,14 @@ export function BlocksLayout({
   isLiked: boolean;
   update: () => void;
 }>) {
-  const {execute, isExecuting} = useAction(updateLikeTA, {
-    onSuccess: ({data}) => {
-      update();
-      toast.success(data?.message);
+  const {execute, isExecuting, optimisticState} = useOptimisticAction(updateLikeTA, {
+    currentState: {isLiked, jumlahLove},
+    updateFn: ({isLiked, jumlahLove}) => {
+
+      if (isLiked) {
+        return {isLiked: false, jumlahLove: Number(jumlahLove) - 1};
+      }
+      return {isLiked: true, jumlahLove: Number(jumlahLove) + 1};
     },
     onExecute: () => {
       update();
@@ -87,9 +91,9 @@ export function BlocksLayout({
             execute({taId: id})
             e.stopPropagation();
           }}>
-            <Heart fill={isLiked ? "white" : "transparent"} className="w-5 h-5 mr-2"/>
+            <Heart fill={optimisticState.isLiked ? "white" : "transparent"} className="w-5 h-5 mr-2"/>
           </button>
-          {jumlahLove}
+          {optimisticState.jumlahLove}
         </h4>
       </div>
     </div>

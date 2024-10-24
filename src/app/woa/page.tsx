@@ -16,10 +16,15 @@ export default function Page() {
     execute({nameOrNim: search, content: search});
   }, [execute, search])
 
+  function update() {
+    execute({nameOrNim: search, content: search});
+  }
+
   return (
     <div
       className="relative min-h-screen flex flex-col items-center px-6 sm:px-8 md:px-10 gap-6 md:gap-8 pb-8 md:pb-10">
-      <FormDialog/>
+      <FormDialog
+      update={update}/>
       <div
         style={{backgroundImage: "url('/organogram/borderlight.png')"}}
         className="bg-center bg-cover w-full h-screen fixed top-0 -z-10 "></div>
