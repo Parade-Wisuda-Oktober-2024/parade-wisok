@@ -12,7 +12,7 @@ import Image from "next/image";
 import {Heart} from "lucide-react";
 
 function TABlocks() {
-  const {execute, result, isExecuting, isPending} = useAction(searchAllTA);
+  const {execute, result, isExecuting} = useAction(searchAllTA);
 
   useEffect(() => {
     execute({nameOrTitle: "", faculty: "", major: ""});
@@ -105,7 +105,7 @@ function TABlocks() {
             </div>
           </DialogContent>
         </Dialog>
-        {(isPending || isExecuting) && <div className="text-center">Loading...</div>}
+        { isExecuting && <div className="text-center">Loading...</div>}
         {result.data?.map((ta) => (
           <div className="" key={ta.title} onClick={() => {
             setSelectedTA({

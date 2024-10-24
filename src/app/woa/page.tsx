@@ -10,7 +10,7 @@ import {searchWOA} from "~/app/actions/search-WOA";
 
 export default function Page() {
   const [search, setSearch] = React.useState("");
-  const {execute, result, isExecuting, isPending} = useAction(searchWOA);
+  const {execute, result, isExecuting} = useAction(searchWOA);
 
   useEffect(() => {
     execute({nameOrNim: search, content: search});
@@ -38,7 +38,7 @@ export default function Page() {
         </React.Suspense>
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-10 place-items-center">
-        {isPending || isExecuting && <div className="text-center">Loading...</div>}
+        {isExecuting && <div className="text-center">Loading...</div>}
         {result.data?.map((woa) => (
           <WoaCard key={woa.woaId} from={woa.senderName} to={woa.name} toFaculty={woa.major} toNIM={woa.nim}
                    message={woa.content}/>
