@@ -20,7 +20,7 @@ export function WoaCard({from, to, toFaculty, toNIM, message, className}: WoaCar
         <div className="flex flex-col items-center z-10">
           <h3 className="">{`From ${!from ? "Anon" : from}`}</h3>
           <h1
-            className="title text-lg md:text-xl lg:text-2xl bg-gradient-to-b from-text-alt to-text from-65% to-0%">{`To ${to}`}</h1>
+            className="title text-lg text-center w-full md:text-xl lg:text-2xl bg-gradient-to-b from-text-alt to-text from-65% to-0%">{`To ${to}`}</h1>
           <h4 className="text-center">{toFaculty}</h4>
           <h4 className="">{toNIM}</h4>
         </div>
