@@ -5,9 +5,9 @@ import Image from "next/image";
 import {MenfessForm} from "~/components/graduates/menfess-form";
 import * as React from "react";
 import Link from "next/link";
-import {Pencil, X} from "lucide-react";
+import {Pencil} from "lucide-react";
 
-export default function FormDialog() {
+export default function FormDialog({update}:{update:()=>void}) {
 
   const [isOpen, setIsOpen] = React.useState(false);
   return (
@@ -38,6 +38,7 @@ export default function FormDialog() {
               {/* Identity */}
               <MenfessForm
                 setIsOpen={setIsOpen}
+                update={update}
               />
             </div>
           </div>
