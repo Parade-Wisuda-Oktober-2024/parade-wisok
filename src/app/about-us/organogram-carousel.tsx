@@ -15,9 +15,10 @@ import OnoHeader from "~/components/onoheader";
 
 type CarouselSpacingProps = {
   cardsData: OrganogramData[];
+  isOpras?: boolean;
 };
 
-export function OrganogramCarousel({ cardsData }: CarouselSpacingProps) {
+export function OrganogramCarousel({ cardsData, isOpras }: CarouselSpacingProps) {
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
   const [isPrevHidden, setIsPrevHidden] = useState(true);
@@ -92,6 +93,7 @@ export function OrganogramCarousel({ cardsData }: CarouselSpacingProps) {
                   name={card.name}
                   title={card.title}
                   batch={card.batch}
+                  isOpras={isOpras}
                 />
               </div>
             </CarouselItem>

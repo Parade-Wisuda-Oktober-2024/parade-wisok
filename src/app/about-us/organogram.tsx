@@ -108,8 +108,8 @@ const Organogram = () => {
       </div>
       <div className="flex flex-col items-center gap-8 sm:flex-row lg:gap-16 mb-10 sm:mb-12" data-aos="fade-up" data-aos-delay="200">
         <OrganogramCard frameType="light" photo="/organogram/fotopanitia/Fundraising/wakabid.png" name="Hendri Saputra" title="WAKIL KETUA BIDANG" batch="MA'22" />
-        <OrganogramCard frameType="light" photo="/organogram/fotopanitia/Fundraising/sekbenbid1.png" name="Naufal Fauzan" title="SEKBEN BIDANG 1" batch="GL'22" />
-        <OrganogramCard frameType="light" photo="/organogram/fotopanitia/Fundraising/sekbenbid2.png" name="Mellisa Virginia B." title="SEKBEN BIDANG 2" batch="TI'22" />
+        <OrganogramCard frameType="light" photo="/organogram/fotopanitia/Fundraising/sekbenbid2.png" name="Naufal Fauzan" title="SEKBEN BIDANG 1" batch="GL'22" />
+        <OrganogramCard frameType="light" photo="/organogram/fotopanitia/Fundraising/sekbenbid1.png" name="Mellisa Virginia B." title="SEKBEN BIDANG 2" batch="TI'22" />
       </div>
       <div data-aos="fade-up" data-aos-delay="200">
         <OrganogramCarousel cardsData={cardDataFundraising} />
@@ -149,7 +149,7 @@ const Organogram = () => {
         <OrganogramCard frameType="light" photo="/organogram/fotopanitia/Opras/sekbenbid2.png" name="Masayu Arde L." title="SEKBEN BIDANG 2" batch="GD'22" />
       </div>
       <div data-aos="fade-up" data-aos-delay="200">
-        <OrganogramCarousel cardsData={cardDataOperasional} />
+        <OrganogramCarousel cardsData={cardDataOperasional} isOpras />
       </div>
   
     </div>

@@ -5,4 +5,5 @@ export type OrganogramData = {
     photo: string;
     frameType: "light" | "dark";
     division: string;
+    isOpras?: boolean;
 };

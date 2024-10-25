@@ -20,7 +20,7 @@ const FAQPage: React.FC = () => {
       value: "item-2"
     },
     {
-      question: "Apa itu WoA (Wisuda of Appreciation)?",
+      question: "Apa itu WoA (Wall of Appreciation)?",
       answer:
         "WoA adalah halaman khusus dimana pengguna dapat mengirimkan pesan apresiasi kepada wisudawan. Pesan dapat dikirimkan dengan menyertakan nama, NIM, dan jurusan wisudawan. Pesan apresiasi ini juga dapat dikirim secara anonim.",
       value: "item-3"
